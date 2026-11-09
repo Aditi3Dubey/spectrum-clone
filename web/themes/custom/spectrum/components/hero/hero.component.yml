@@ -1,0 +1,66 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero Banner
+description: 'Full-width banner with background image or video, red accent line, uppercase heading, sub-heading, red button and a scroll link. Use "Large" on the home page and "Small" on inner pages.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - image
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: 'Main heading, shown in uppercase (H1).'
+      examples:
+        - 'Precision in every wire'
+    subheading:
+      type: string
+      title: Sub-heading
+      description: 'Larger line shown below the heading.'
+      examples:
+        - 'for marking and stripping'
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Background image'
+      description: 'Shown behind the text. Also used as the video poster.'
+      examples:
+        - src: 'https://placehold.co/1920x720.png'
+          alt: 'Placeholder background'
+          width: 1920
+          height: 720
+    video_src:
+      type: string
+      format: uri-reference
+      title: 'Background video (optional)'
+      description: 'Path to an .mp4 file, e.g. /sites/default/files/hero.mp4. If empty, the image is used.'
+    cta_label:
+      type: string
+      title: 'Button label'
+      examples:
+        - 'Explore our products'
+    cta_url:
+      type: string
+      format: uri-reference
+      title: 'Button link'
+      examples:
+        - '/products'
+    scroll_label:
+      type: string
+      title: 'Scroll link label'
+      description: 'Small link at the bottom of large heroes. Leave empty to hide.'
+      examples:
+        - 'Scroll to learn more'
+    size:
+      type: string
+      title: Size
+      enum:
+        - large
+        - small
+      meta:enum:
+        large: 'Large (home)'
+        small: 'Small (inner pages)'
+      default: large
+      examples:
+        - large

@@ -1,0 +1,6 @@
+global:
+  version: 1.0
+  css:
+    base:
+      css/base/variables.css: {}
+      css/base/base.css: {}

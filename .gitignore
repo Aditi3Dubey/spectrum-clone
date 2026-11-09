@@ -1,0 +1,38 @@
+# Files from composer (come again when run lando composer install)
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/drush/Commands/contrib/
+
+# Drupal's scaffold files (come again when run lando drush)
+/web/*.php
+/web/.htaccess
+/web/robots.txt
+/web/web.config
+/web/.csslintrc
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.ht.router.php
+/web/INSTALL.txt
+/web/README.md
+/web/example.gitignore
+/web/sites/*.php
+/web/sites/*.yml
+/web/sites/*.txt
+
+# Site's private or local files (passwords, uploads, video)
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/services*.yml
+
+# System and editor 's  files
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+*.log

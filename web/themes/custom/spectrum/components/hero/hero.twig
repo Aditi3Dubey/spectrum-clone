@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Hero Banner component.
+ */
+#}
+{% set size = size ?: 'large' %}
+
+<section{{ attributes.addClass(['hero', 'hero--' ~ size]) }}>
+  <div class="hero__media">
+    {% if video_src %}
+      <video class="hero__video" autoplay muted loop playsinline
+             poster="{{ image.src }}" aria-hidden="true">
+        <source src="{{ video_src }}" type="video/mp4">
+      </video>
+    {% elseif image.src %}
+      <img class="hero__image"
+           src="{{ image.src }}"
+           alt="{{ image.alt }}"
+           {% if image.width %}width="{{ image.width }}"{% endif %}
+           {% if image.height %}height="{{ image.height }}"{% endif %}
+           fetchpriority="high">
+    {% endif %}
+  </div>
+
+  <div class="hero__content container">
+    <div class="hero__inner">
+      <span class="red-line hero__line" aria-hidden="true"></span>
+
+      <h1 class="hero__heading">{{ heading }}</h1>
+
+      {% if subheading %}
+        <p class="hero__subheading">{{ subheading }}</p>
+      {% endif %}
+
+      {% if cta_label and cta_url %}
+        <a class="btn hero__cta" href="{{ cta_url }}">
+          {{ cta_label }}
+          <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if size == 'large' and scroll_label %}
+    <a class="hero__scroll" href="#after-hero">{{ scroll_label }}</a>
+  {% endif %}
+</section>
+{% if size == 'large' and scroll_label %}<span id="after-hero"></span>{% endif %}

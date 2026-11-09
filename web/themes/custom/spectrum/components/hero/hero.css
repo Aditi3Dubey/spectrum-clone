@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.hero--large { min-height: 560px; }
+.hero--small { min-height: 320px; }
+
+.hero__media,
+.hero__image,
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text padhne layak rahe isliye halka dark layer */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-lg);
+}
+
+.hero__inner { max-width: 20.9rem; }
+
+.hero__line { margin-bottom: 16px; }
+
+.hero__heading {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 2.5rem;
+  line-height: 3.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero__subheading {
+  margin: 8px 0 0;
+  color: var(--color-white);
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+}
+
+.hero__cta {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: 2px;
+}
+
+.hero__scroll { display: none; }
+
+/* Small (inner pages) */
+.hero--small .hero__inner { max-width: 50rem; }
+.hero--small .hero__heading { font-size: 2rem; line-height: 1.2; }
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .hero--large { min-height: 720px; }
+  .hero--small { min-height: 400px; }
+
+  .hero__inner { max-width: 35.4rem; }
+  .hero__line { margin-bottom: 24px; }
+
+  .hero__heading {
+    font-size: 64px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  .hero__subheading { font-size: 48px; line-height: 1.2; }
+
+  .hero__cta {
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: none;
+    border-radius: 0;
+  }
+
+  .hero--small .hero__heading { font-size: 48px; }
+
+  .hero__scroll {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-white);
+    text-decoration: none;
+  }
+  .hero__scroll:hover { color: var(--color-white); text-decoration: underline; }
+}
