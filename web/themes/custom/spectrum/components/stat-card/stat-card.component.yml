@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Stat Card
+description: 'White card with a large heading, a short red line and a short text. If a link is set, the whole card is clickable and shows a red arrow on hover. Place it inside a Stat Card Grid.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+  properties:
+    heading:
+      type: string
+      title: Heading
+      description: 'Big number or short claim, for example "30+ Years of Engineering".'
+      examples:
+        - '30+ Years of Engineering'
+    text:
+      type: string
+      title: Text
+      description: 'One or two sentences. Longer text is cut after 3 lines.'
+      examples:
+        - 'Designing precise laser systems for wire processing since the early 1990s.'
+    url:
+      type: string
+      format: uri-reference
+      title: Link
+      description: 'Optional. Makes the whole card clickable.'
+      examples:
+        - /about

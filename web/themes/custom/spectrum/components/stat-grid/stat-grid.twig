@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Stat Card Grid component.
+ */
+#}
+{% set background = background ?: 'grey' %}
+
+<section{{ attributes.addClass(['stat-grid', 'stat-grid--' ~ background]) }}>
+  <div class="stat-grid__inner">
+    {% block cards %}{% endblock %}
+  </div>
+</section>

@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Stat Card component.
+ */
+#}
+{% set classes = ['stat-card'] %}
+{% if url %}
+  {% set classes = classes|merge(['stat-card--linked']) %}
+{% endif %}
+
+<article{{ attributes.addClass(classes) }}>
+  <h3 class="stat-card__heading">
+    {% if url %}
+      <a class="stat-card__link" href="{{ url }}">{{ heading }}</a>
+    {% else %}
+      {{ heading }}
+    {% endif %}
+  </h3>
+
+  {% if text %}
+    <p class="stat-card__text">{{ text }}</p>
+  {% endif %}
+
+  {% if url %}
+    <span class="stat-card__arrow" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 14 14"><path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/></svg>
+    </span>
+  {% endif %}
+</article>
