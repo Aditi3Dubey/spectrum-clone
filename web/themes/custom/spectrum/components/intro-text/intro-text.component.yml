@@ -1,0 +1,46 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Intro Text
+description: 'Centred section with a heading, formatted text (one or more paragraphs) and an optional red button. Use it to introduce a page or a topic.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+  properties:
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Precision in Every Mark'
+    text:
+      type: string
+      title: Text
+      description: 'One or more short paragraphs. Bold, italic and links are allowed.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - '<p>For more than thirty years we have built laser systems that mark, strip and process wire for the most demanding industries.</p><p>See how our engineering keeps production lines accurate, fast and reliable.</p>'
+    cta_label:
+      type: string
+      title: 'Button text'
+      description: 'Leave empty to hide the button.'
+      examples:
+        - 'Request a Consultation'
+    cta_url:
+      type: string
+      format: uri-reference
+      title: 'Button link'
+      examples:
+        - /contact
+    background:
+      type: string
+      title: Background
+      enum:
+        - grey
+        - white
+      meta:enum:
+        grey: 'Light grey'
+        white: White
+      examples:
+        - grey
