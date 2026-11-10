@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Intro Text component.
+ */
+#}
+{% set background = background ?: 'grey' %}
+
+<section{{ attributes.addClass(['intro-text', 'intro-text--' ~ background]) }}>
+  <div class="intro-text__inner">
+    <h2 class="intro-text__heading">{{ heading }}</h2>
+
+    {% if text %}
+      <div class="intro-text__body">{{ text }}</div>
+    {% endif %}
+
+    {% if cta_label and cta_url %}
+      <a class="btn" href="{{ cta_url }}">
+        {{ cta_label }}
+        <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+          <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+</section>
