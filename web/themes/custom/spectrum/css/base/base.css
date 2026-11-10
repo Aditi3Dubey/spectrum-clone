@@ -77,3 +77,13 @@ p { margin: 0 0 1em; }
 
 .btn--white { background: var(--color-white); color: var(--color-red); }
 .btn--white:hover { background: var(--color-light); color: var(--color-red); }
+
+/* Text should only seen screen reader not show on screen*/
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}

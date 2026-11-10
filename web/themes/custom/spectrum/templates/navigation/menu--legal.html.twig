@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Legal menu: single row of links in the footer bottom bar.
+ */
+#}
+<ul class="legal-menu">
+  {% for item in items %}
+    <li>{{ link(item.title, item.url) }}</li>
+  {% endfor %}
+</ul>

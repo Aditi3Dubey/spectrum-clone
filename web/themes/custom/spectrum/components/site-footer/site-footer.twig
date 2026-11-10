@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Site Footer component.
+ */
+#}
+<footer{{ attributes.addClass('site-footer') }}>
+  <div class="container">
+
+    <div class="site-footer__top">
+      <a class="site-footer__logo" href="/" rel="home">
+        <img src="{{ logo_src }}" alt="{{ logo_alt|default('Home') }}" width="179" height="40" loading="lazy">
+      </a>
+
+      {% if x_url or linkedin_url or youtube_url %}
+        <div class="site-footer__social">
+          <span class="site-footer__social-title">{{ 'Follow us'|t }}</span>
+          <ul>
+            {% if x_url %}
+              <li><a href="{{ x_url }}" target="_blank" rel="noopener" aria-label="X">
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-7.5 8.6L23 22h-6.8l-5.3-6.9L4.8 22H1.7l8-9.2L1 2h7l4.8 6.3L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z" fill="currentColor"/></svg>
+              </a></li>
+            {% endif %}
+            {% if linkedin_url %}
+              <li><a href="{{ linkedin_url }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z" fill="currentColor"/></svg>
+              </a></li>
+            {% endif %}
+            {% if youtube_url %}
+              <li><a href="{{ youtube_url }}" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9l5.8 3.1z" fill="currentColor"/></svg>
+              </a></li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="site-footer__menu">
+      {% block menu %}{% endblock %}
+    </div>
+
+    <div class="site-footer__bottom">
+      {% if copyright %}
+        <p class="site-footer__copyright">{{ copyright }}</p>
+      {% endif %}
+      {% block legal %}{% endblock %}
+    </div>
+
+  </div>
+</footer>

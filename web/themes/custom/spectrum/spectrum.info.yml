@@ -6,10 +6,5 @@ base theme: false
 libraries:
   - spectrum/global
 regions:
-  header: Header
-  primary_menu: 'Primary menu'
-  breadcrumb: Breadcrumb
   highlighted: Highlighted
   content: Content
-  footer_menu: 'Footer menu'
-  footer: Footer

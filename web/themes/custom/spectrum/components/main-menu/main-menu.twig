@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Main Menu (mega dropdown) component.
+ */
+#}
+{% set arrow %}
+  <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/></svg>
+{% endset %}
+
+<nav{{ attributes.addClass('main-menu') }} aria-label="{{ 'Main navigation'|t }}">
+  <ul class="main-menu__list">
+    {% for item in links %}
+      {% set has_children = item.below is not empty %}
+      {% set panel_id = 'mega-panel-' ~ loop.index %}
+
+      <li class="main-menu__item{{ has_children ? ' main-menu__item--parent' }}{{ item.active ? ' is-active' }}">
+        {% if has_children %}
+          <button class="main-menu__link main-menu__toggle" type="button" aria-expanded="false" aria-controls="{{ panel_id }}">
+            {{ item.title }}
+            <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.4 3.6 6 8.2l4.6-4.6" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+          </button>
+        {% elseif item.url %}
+          <a class="main-menu__link" href="{{ item.url }}">{{ item.title }}</a>
+        {% else %}
+          <span class="main-menu__link">{{ item.title }}</span>
+        {% endif %}
+
+        {% if has_children %}
+
+          <div class="main-menu__panel" id="{{ panel_id }}">
+            <div class="main-menu__panel-inner container">
+              {% if item.url and item.description %}
+                <a class="main-menu__explore" href="{{ item.url }}">{{ item.description }} {{ arrow }}</a>
+              {% endif %}
+
+              <ul class="main-menu__columns">
+                {% for group in item.below %}
+                  <li class="main-menu__column">
+                    {% if group.url %}
+                      <a class="main-menu__heading" href="{{ group.url }}">{{ group.title }}</a>
+                    {% else %}
+                      <span class="main-menu__heading">{{ group.title }}</span>
+                    {% endif %}
+
+                    {% if group.below is not empty %}
+                      <ul class="main-menu__sublist">
+                        {% for link in group.below %}
+                          <li class="main-menu__subitem">
+                            {% if link.url %}
+                              <a class="main-menu__sublink" href="{{ link.url }}">{{ link.title }}</a>
+                            {% else %}
+                              <span class="main-menu__sublink">{{ link.title }}</span>
+                            {% endif %}
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
