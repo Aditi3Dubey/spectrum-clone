@@ -1,0 +1,23 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Stat Card Grid
+description: 'Full-width section that lines up Stat Cards in a centred row (3 per row on desktop, 1 on mobile). Drop Stat Card components into the Cards slot.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  properties:
+    background:
+      type: string
+      title: Background
+      enum:
+        - grey
+        - white
+      meta:enum:
+        grey: 'Light grey'
+        white: White
+      examples:
+        - grey
+slots:
+  cards:
+    title: Cards
+    description: 'Place Stat Card components here.'
