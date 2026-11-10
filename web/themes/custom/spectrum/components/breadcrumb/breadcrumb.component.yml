@@ -1,0 +1,15 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Breadcrumb
+description: 'Breadcrumb trail for inner pages. Fed by the core breadcrumb block (URL-based).'
+group: 'Spectrum - Global'
+status: stable
+noUi: true
+props:
+  type: object
+  properties:
+    items:
+      type: array
+      title: Items
+      description: 'List of {text, url}. An item without url is shown as plain text.'
+      items:
+        type: object

@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Core breadcrumb rendered with the Breadcrumb SDC component.
+ */
+#}
+{{ include('spectrum:breadcrumb', {
+  items: breadcrumb|map(item => { text: item.text|render|striptags|trim, url: item.url|default('') })
+}, with_context = false) }}

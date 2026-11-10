@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * Main navigation: converts menu items to plain arrays and renders the Main Menu SDC.
+ */
+#}
+{% set links = [] %}
+{% for item in items %}
+  {% set groups = [] %}
+  {% for group in item.below %}
+    {% set sublinks = [] %}
+    {% for link in group.below %}
+      {% set sublinks = sublinks|merge([{
+        title: link.title ~ '',
+        url: link.url.toString(),
+      }]) %}
+    {% endfor %}
+    {% set groups = groups|merge([{
+      title: group.title ~ '',
+      url: group.url.toString(),
+      below: sublinks,
+    }]) %}
+  {% endfor %}
+  {% set links = links|merge([{
+    title: item.title ~ '',
+    url: item.url.toString(),
+    description: item.original_link.getDescription()|default(''),
+    active: item.in_active_trail ? true : false,
+    below: groups,
+  }]) %}
+{% endfor %}
+
+{{ include('spectrum:main-menu', { links: links }, with_context = false) }}

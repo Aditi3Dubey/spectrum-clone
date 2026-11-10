@@ -1,0 +1,20 @@
+.breadcrumb {
+  padding: 16px 0;
+  background: var(--color-white);
+  font-size: 14px;
+  letter-spacing: 0.28px;
+}
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-block: 0;
+  list-style: none;
+}
+.breadcrumb__item + .breadcrumb__item::before {
+  content: "/";
+  margin: 0 8px;
+  color: var(--color-grey);
+}
+.breadcrumb__item a { color: var(--color-dark); text-decoration: none; }
+.breadcrumb__item a:hover { color: var(--color-red); text-decoration: underline; }
+.breadcrumb__item span { color: var(--color-grey); }

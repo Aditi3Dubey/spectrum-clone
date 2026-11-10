@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Site Header component.
+ */
+#}
+<header{{ attributes.addClass('site-header') }}>
+  <div class="site-header__bar container">
+
+    <a class="site-header__logo" href="{{ home_url|default('/') }}" rel="home">
+      <img src="{{ logo_src }}" alt="{{ logo_alt|default('Home') }}" width="179" height="40">
+    </a>
+
+    <div class="site-header__nav" id="site-header-nav">
+      {% block navigation %}{% endblock %}
+    </div>
+
+    <div class="site-header__actions">
+      <button class="site-header__icon site-header__search-toggle" type="button"
+              aria-expanded="false" aria-controls="site-header-search">
+        <span class="visually-hidden">{{ 'Search'|t }}</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 0 1 6.3 12.9l5.4 5.4-1.4 1.4-5.4-5.4A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z" fill="currentColor"/></svg>
+      </button>
+
+      {% if contact_url %}
+        <a class="site-header__icon site-header__contact" href="{{ contact_url }}">
+          <span class="visually-hidden">{{ 'Contact us'|t }}</span>
+          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20v16H2V4zm2 2v.5l8 5 8-5V6H4zm16 2.8-8 5-8-5V18h16V8.8z" fill="currentColor"/></svg>
+        </a>
+      {% endif %}
+
+      <button class="site-header__icon site-header__burger" type="button"
+              aria-expanded="false" aria-controls="site-header-nav">
+        <span class="visually-hidden">{{ 'Menu'|t }}</span>
+        <span class="site-header__burger-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="site-header__search" id="site-header-search" hidden>
+    <form class="site-header__search-form container" action="{{ search_url|default('/search/node') }}" method="get" role="search">
+      <label class="visually-hidden" for="site-header-search-input">{{ 'Search'|t }}</label>
+      <input id="site-header-search-input" type="search" name="keys" placeholder="{{ 'Search the site'|t }}">
+      <button class="btn" type="submit">{{ 'Search'|t }}</button>
+    </form>
+  </div>
+</header>

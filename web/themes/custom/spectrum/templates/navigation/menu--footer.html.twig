@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Footer menu: columns with a title and links.
+ */
+#}
+<ul class="footer-menu">
+  {% for column in items %}
+    <li class="footer-menu__column">
+      {{ link(column.title, column.url, { class: ['footer-menu__title'] }) }}
+
+      {% if column.below is not empty %}
+        <ul class="footer-menu__list">
+          {% for item in column.below %}
+            <li>{{ link(item.title, item.url, { class: ['footer-menu__link'] }) }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Breadcrumb component.
+ */
+#}
+{% if items is not empty %}
+  <nav{{ attributes.addClass('breadcrumb') }} aria-label="{{ 'Breadcrumb'|t }}">
+    <ol class="breadcrumb__list container">
+      {% for item in items %}
+        <li class="breadcrumb__item">
+          {% if item.url %}
+            <a href="{{ item.url }}">{{ item.text }}</a>
+          {% else %}
+            <span aria-current="page">{{ item.text }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}
