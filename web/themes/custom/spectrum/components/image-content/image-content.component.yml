@@ -1,0 +1,85 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Image + Content
+description: 'Two-column section: an image on one side and an eyebrow, heading, formatted text and an optional button on the other. Image can sit left or right, fill its box (photo) or sit in a white frame (product). Stacks on screens below 1200px.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - image
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Image
+      examples:
+        - src: 'https://placehold.co/1200x800.png?text=Image'
+          alt: 'Placeholder image'
+          width: 1200
+          height: 800
+    eyebrow:
+      type: string
+      title: Label
+      description: 'Short red label above the heading, for example "Contract Services".'
+      examples:
+        - 'Contract Services'
+
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Built for precision, made to scale'
+    text:
+      type: string
+      title: Text
+      description: 'Paragraphs, lists, bold and links are allowed.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - '<p>Our engineers turn your wire processing needs into a reliable production setup, from the first sample to full volume.</p>'
+    cta_label:
+      type: string
+      title: 'Link text'
+      description: 'Red text link below the text. Leave empty to hide it.'
+      examples:
+        - 'Explore Contract Manufacturing'
+
+    cta_url:
+      type: string
+      format: uri-reference
+      title: 'Button link'
+      examples:
+        - /contact
+    image_position:
+      type: string
+      title: 'Image position'
+      enum:
+        - left
+        - right
+      meta:enum:
+        left: 'Image on the left'
+        right: 'Image on the right'
+      examples:
+        - left
+    image_style:
+      type: string
+      title: 'Image style'
+      enum:
+        - photo
+        - product
+      meta:enum:
+        photo: 'Photo (fills the box)'
+        product: 'Product (white frame, whole image visible)'
+      examples:
+        - photo
+    background:
+      type: string
+      title: Background
+      enum:
+        - white
+        - grey
+      meta:enum:
+        white: White
+        grey: 'Light grey'
+      examples:
+        - white

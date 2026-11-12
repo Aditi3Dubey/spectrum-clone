@@ -1,0 +1,131 @@
+/* Do blocks ke beech 80px (40 + 40), reference jaisa */
+.image-content { padding-block: 40px; }
+.image-content--white { background: var(--color-white); }
+.image-content--grey  { background: var(--color-light); }
+
+/* Mobile/tablet: photo upar, text neeche */
+.image-content__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Photo ka box: mobile par 260px uncha */
+.image-content__media {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  height: 260px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.image-content__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Product style: white square frame, poori photo dikhe */
+.image-content--product .image-content__media {
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--color-border);
+  background: var(--color-white);
+}
+.image-content--product .image-content__image { object-fit: contain; }
+
+.image-content__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 620px;
+}
+.image-content__text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Red label */
+.image-content__label {
+  align-self: flex-start;
+  margin: 0;
+  padding: 8px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.image-content__heading {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.image-content__text {
+  color: var(--color-dark);
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.image-content__text > * { margin: 0; }
+.image-content__text > * + * { margin-top: 1em; }
+.image-content__text a { color: var(--color-red); }
+
+/* Red text link + arrow */
+.image-content__link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 12px 0;
+  color: var(--color-red);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.image-content__link svg { transition: transform var(--transition); }
+.image-content__link:hover { color: var(--color-red); }
+.image-content__link:hover svg { transform: translateX(8px); }
+.image-content__link:focus-visible { outline: 2px solid var(--color-red); outline-offset: 4px; }
+
+@media (max-width: 575px) {
+  .image-content__heading { font-size: 28px; }
+}
+
+/* Tablet: photo box 620 x 402 */
+@media (min-width: 769px) {
+  .image-content__media { height: 402px; }
+}
+
+/* Desktop: side-by-side, upar se aligned */
+@media (min-width: 1200px) {
+  .image-content__inner {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .image-content--right .image-content__inner { flex-direction: row-reverse; }
+  .image-content__media,
+  .image-content__body { max-width: 500px; }
+}
+
+/* Badi screen: poore 620px aur 80px gap */
+@media (min-width: 1406px) {
+  .image-content__inner { gap: 80px; }
+  .image-content__media,
+  .image-content__body { max-width: 620px; }
+}
