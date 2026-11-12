@@ -1,0 +1,45 @@
+{#
+/**
+ * @file
+ * Product Card component.
+ */
+#}
+{% set srcset = image.src ? image.src|toSrcSet(image.width) : null %}
+
+<article{{ attributes.addClass('product-card') }}>
+  <div class="product-card__media">
+    {% if image.src %}
+      <img class="product-card__image"
+           src="{{ image.src }}"
+           {% if srcset %}srcset="{{ srcset }}" sizes="295px"{% endif %}
+           alt="{{ image.alt }}"
+           {% if image.width %}width="{{ image.width }}"{% endif %}
+           {% if image.height %}height="{{ image.height }}"{% endif %}
+           loading="lazy">
+    {% endif %}
+  </div>
+
+  <div class="product-card__content">
+    <div class="product-card__text">
+      <h3 class="product-card__heading">
+        {% if url %}
+          <a class="product-card__main-link" href="{{ url }}">{{ heading }}</a>
+        {% else %}
+          {{ heading }}
+        {% endif %}
+      </h3>
+      {% if text %}
+        <p class="product-card__description">{{ text }}</p>
+      {% endif %}
+    </div>
+
+    {% if url %}
+      <span class="product-card__cta" aria-hidden="true">
+        {{ link_label|default('View Product') }}
+        <svg width="20" height="20" viewBox="0 0 14 14">
+          <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+        </svg>
+      </span>
+    {% endif %}
+  </div>
+</article>

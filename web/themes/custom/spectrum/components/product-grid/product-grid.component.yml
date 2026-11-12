@@ -1,0 +1,39 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Product Card Grid
+description: 'Section with an optional heading (with a red highlighted word), intro text and a wrapping row of Product Cards (4 per row on wide screens, centred on mobile). Drop Product Card components into the Cards slot.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Explore our'
+    heading_highlight:
+      type: string
+      title: 'Heading red word'
+      description: 'Shown in red right after the heading, for example "products".'
+      examples:
+        - products
+    text:
+      type: string
+      title: 'Intro text'
+      examples:
+        - 'From permanent wire marking to precise stripping, cutting and handling, our range covers every step of wire processing.'
+    background:
+      type: string
+      title: Background
+      enum:
+        - white
+        - grey
+      meta:enum:
+        white: White
+        grey: 'Light grey'
+      examples:
+        - white
+slots:
+  cards:
+    title: Cards
+    description: 'Place Product Card components here.'

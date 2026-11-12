@@ -1,0 +1,22 @@
+{#
+/**
+ * @file
+ * Page Banner component.
+ */
+#}
+{% set srcset = image.src ? image.src|toSrcSet(image.width) : null %}
+
+<section{{ attributes.addClass('page-banner') }}>
+  {% if image.src %}
+    <img class="page-banner__image"
+         src="{{ image.src }}"
+         {% if srcset %}srcset="{{ srcset }}" sizes="100vw"{% endif %}
+         alt=""
+         {% if image.width %}width="{{ image.width }}"{% endif %}
+         {% if image.height %}height="{{ image.height }}"{% endif %}
+         fetchpriority="high">
+  {% endif %}
+  <div class="page-banner__content">
+    <h1 class="page-banner__heading">{{ heading }}</h1>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Product Card
+description: 'Card with a product photo, a heading, a short description (cut after 3 lines) and a red "View Product" link. The whole card is clickable. Use it inside a Product Card Grid.'
+group: 'Spectrum - Cards'
+status: stable
+props:
+  type: object
+  required:
+    - image
+    - heading
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Product image'
+      description: 'Product photo, ideally 1200 x 800 on a white background.'
+      examples:
+        - src: 'https://placehold.co/1200x800.png?text=Product'
+          alt: 'Placeholder product photo'
+          width: 1200
+          height: 800
+    heading:
+      type: string
+      title: 'Product name'
+      examples:
+        - 'Nova Series'
+    text:
+      type: string
+      title: Description
+      description: 'Short text. Cut after 3 lines.'
+      examples:
+        - 'Bench-top laser system that marks and strips wire for low to medium volume production.'
+    url:
+      type: string
+      format: uri-reference
+      title: 'Card link'
+      examples:
+        - /products
+    link_label:
+      type: string
+      title: 'Link text'
+      examples:
+        - 'View Product'
