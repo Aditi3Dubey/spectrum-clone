@@ -1,0 +1,48 @@
+.page-banner {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  background: var(--color-navy);
+}
+.page-banner__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Halka blue overlay, reference: #021f3a, 30% */
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 31, 58, 0.3);
+}
+.page-banner__content {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}
+.page-banner__heading {
+  max-width: 750px;
+  margin: 0;
+  color: var(--color-white);
+  font-family: "Arial Black", var(--font-base);
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 1.44px;
+  text-align: center;
+}
+
+/* Reference ki heights, screen ke hisaab se */
+@media (max-width: 1680px) { .page-banner { height: 420px; } }
+@media (max-width: 1440px) { .page-banner { height: 402px; } }
+@media (max-width: 1200px) { .page-banner { height: 300px; } }
+@media (max-width: 1024px) { .page-banner { height: 256px; } }
+@media (max-width: 768px)  { .page-banner__heading { font-size: 52px; letter-spacing: 1.04px; } }
+@media (max-width: 576px)  { .page-banner { height: 250px; } .page-banner__heading { font-size: 40px; } }

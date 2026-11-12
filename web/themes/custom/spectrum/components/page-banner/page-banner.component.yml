@@ -1,0 +1,25 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Page Banner
+description: 'Top banner for inner pages: a full-width photo with a light blue overlay and the page title (H1) centred on it.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - image
+  properties:
+    heading:
+      type: string
+      title: 'Page title'
+      examples:
+        - 'Product Categories'
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Background image'
+      description: 'Wide photo, at least 1920 x 480.'
+      examples:
+        - src: 'https://placehold.co/1920x480.png?text=Banner'
+          alt: ''
+          width: 1920
+          height: 480

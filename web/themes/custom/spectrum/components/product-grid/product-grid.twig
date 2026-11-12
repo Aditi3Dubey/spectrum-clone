@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Product Card Grid component.
+ */
+#}
+{% set background = background ?: 'white' %}
+
+<section{{ attributes.addClass(['product-grid', 'product-grid--' ~ background]) }}>
+  <div class="product-grid__inner container">
+    {% if heading or text %}
+      <div class="product-grid__head">
+        {% if heading %}
+          <h2 class="product-grid__heading">
+            {{ heading }}
+            {% if heading_highlight %}<span class="product-grid__highlight">{{ heading_highlight }}</span>{% endif %}
+          </h2>
+        {% endif %}
+        {% if text %}
+          <p class="product-grid__text">{{ text }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="product-grid__cards">
+      {% block cards %}{% endblock %}
+    </div>
+  </div>
+</section>

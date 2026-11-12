@@ -1,0 +1,50 @@
+/* Reference: upar 60px, intro aur cards ke beech 80px */
+.product-grid { padding-block: var(--space-lg); }
+.product-grid--white { background: var(--color-white); }
+.product-grid--grey  { background: var(--color-light); }
+
+.product-grid__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.product-grid__head {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.product-grid__heading {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.product-grid__highlight { color: var(--color-red); }
+
+.product-grid__text {
+  margin: 0;
+  max-width: 1000px;
+    color: var(--color-dark);
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+/* Reference: flex wrap, 20px gap, mobile par beech mein */
+.product-grid__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  .product-grid__inner { gap: 40px; }
+  .product-grid__cards { justify-content: center; }
+  .product-grid__heading { font-size: 28px; }
+}
+
+@media (min-width: 1200px) {
+  .product-grid__cards > * { width: min(315px, calc((100% - 60px) / 4)); }
+}

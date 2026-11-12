@@ -1,0 +1,98 @@
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 315px;
+  max-width: 100%;
+  min-height: 490px;
+  background: var(--color-white);
+  border-bottom: 2px solid var(--color-red);
+  transition: background var(--transition);
+}
+
+/* Hover/keyboard focus par halka grey, reference jaisa */
+.product-card:hover,
+.product-card:focus-within { background: #f5f5f5; }
+
+/* Photo ka area: white padding ke beech, poori photo dikhe */
+.product-card__media {
+  padding: 34.32px 10px;
+}
+.product-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 295 / 191.35;
+  object-fit: cover;
+}
+
+.product-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 16px;
+  padding: 24px 24px 32px;
+}
+.product-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-card__heading {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.product-card__main-link {
+  color: inherit;
+  text-decoration: none;
+}
+/* Stretched link: heading ka link poore card ko clickable banata hai */
+.product-card__main-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.product-card__main-link:focus-visible { outline: none; }
+.product-card:has(.product-card__main-link:focus-visible) {
+  outline: 2px solid var(--color-red);
+  outline-offset: 2px;
+}
+
+.product-card__description {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  /* 3 lines ke baad "..." */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Red "View Product" + arrow */
+.product-card__cta {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  color: var(--color-red);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.product-card__cta svg { transition: transform var(--transition); }
+.product-card:hover .product-card__cta svg { transform: translateX(8px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-card__cta svg { transition: none; }
+}
