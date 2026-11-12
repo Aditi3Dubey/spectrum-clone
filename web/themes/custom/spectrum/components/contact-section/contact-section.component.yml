@@ -1,0 +1,47 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Contact Section
+description: 'Contact area with an optional grey notice bar, a centred heading and a bordered box: the form on the left (Form slot) and a photo panel with a heading and short text on the right.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - panel_image
+  properties:
+    notice:
+      type: string
+      title: 'Notice bar text'
+      description: 'Optional grey bar above the form, for example an email address to use if the form does not work.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - '<p>If the form does not work for you, email us at <a href="mailto:hello@example.com">hello@example.com</a> and we will reply as soon as we can.</p>'
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Contact Us Form'
+    panel_image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Panel image'
+      description: 'Tall photo for the right panel, at least 700 x 1000.'
+      examples:
+        - src: 'https://placehold.co/700x1000.png?text=Contact'
+          alt: ''
+          width: 700
+          height: 1000
+    panel_heading:
+      type: string
+      title: 'Panel heading'
+      examples:
+        - 'Contact us'
+    panel_text:
+      type: string
+      title: 'Panel text'
+      examples:
+        - 'Want to talk to us about a product or service? Fill in the form and we will get back to you soon.'
+slots:
+  form:
+    title: Form
+    description: 'Place the Webform block here and choose the Contact form.'
