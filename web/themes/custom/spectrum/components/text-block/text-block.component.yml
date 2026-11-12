@@ -1,0 +1,44 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Text Block
+description: 'Left-aligned section with a heading and formatted text. Use it for page intros (red title) and for long text pages such as Terms or Privacy.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Frequently Asked Questions'
+    heading_level:
+      type: string
+      title: 'Heading level'
+      description: 'Use H1 only when the page has no Hero or Page Banner.'
+      enum:
+        - h1
+        - h2
+      meta:enum:
+        h1: 'H1 (page title)'
+        h2: 'H2 (section title)'
+      examples:
+        - h2
+    heading_color:
+      type: string
+      title: 'Heading colour'
+      enum:
+        - red
+        - dark
+      meta:enum:
+        red: Red
+        dark: Dark
+      examples:
+        - red
+    text:
+      type: string
+      title: Text
+      description: 'Paragraphs, lists, bold and links are allowed.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - '<p>Find quick answers about our wire processing systems, support services and how we work with customers.</p>'

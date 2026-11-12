@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: FAQ Accordion
+description: 'Group of questions with a red category heading. Drop FAQ Item components into the Questions slot.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: 'Category heading'
+      examples:
+        - 'Laser Wire Marking'
+slots:
+  items:
+    title: Questions
+    description: 'Place FAQ Item components here.'

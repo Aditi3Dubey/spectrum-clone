@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * FAQ Accordion component.
+ */
+#}
+<section{{ attributes.addClass('faq-accordion') }}>
+  <div class="faq-accordion__inner container">
+    {% if heading %}
+      <h2 class="faq-accordion__heading">{{ heading }}</h2>
+    {% endif %}
+    <div class="faq-accordion__list">
+      {% block items %}{% endblock %}
+    </div>
+  </div>
+</section>

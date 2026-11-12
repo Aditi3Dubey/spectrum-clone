@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Text Block component.
+ */
+#}
+{% set level = heading_level == 'h1' ? 'h1' : 'h2' %}
+{% set color = heading_color ?: 'red' %}
+
+<section{{ attributes.addClass('text-block') }}>
+  <div class="text-block__inner container">
+    {% if heading %}
+      <{{ level }} class="text-block__heading text-block__heading--{{ color }}">{{ heading }}</{{ level }}>
+    {% endif %}
+    {% if text %}
+      <div class="text-block__text">{{ text }}</div>
+    {% endif %}
+  </div>
+</section>
