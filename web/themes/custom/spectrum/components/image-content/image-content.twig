@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Image + Content component.
+ */
+#}
+{% set position = image_position ?: 'left' %}
+{% set style = image_style ?: 'photo' %}
+{% set background = background ?: 'white' %}
+{% set srcset = image.src ? image.src|toSrcSet(image.width) : null %}
+
+<section{{ attributes.addClass([
+  'image-content',
+  'image-content--' ~ position,
+  'image-content--' ~ style,
+  'image-content--' ~ background,
+]) }}>
+  <div class="image-content__inner container">
+    <div class="image-content__media">
+      {% if image.src %}
+        <img class="image-content__image"
+             src="{{ image.src }}"
+             {% if srcset %}srcset="{{ srcset }}" sizes="(min-width: 769px) 620px, 100vw"{% endif %}
+             alt="{{ image.alt }}"
+             {% if image.width %}width="{{ image.width }}"{% endif %}
+             {% if image.height %}height="{{ image.height }}"{% endif %}
+             loading="lazy">
+      {% endif %}
+    </div>
+
+    <div class="image-content__body">
+      <div class="image-content__text-wrap">
+        {% if eyebrow %}
+          <p class="image-content__label">{{ eyebrow }}</p>
+        {% endif %}
+
+        <h2 class="image-content__heading">{{ heading }}</h2>
+
+        {% if text %}
+          <div class="image-content__text">{{ text }}</div>
+        {% endif %}
+      </div>
+
+      {% if cta_label and cta_url %}
+        <a class="image-content__link" href="{{ cta_url }}">
+          {{ cta_label }}
+          <svg width="20" height="20" viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+          </svg>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
