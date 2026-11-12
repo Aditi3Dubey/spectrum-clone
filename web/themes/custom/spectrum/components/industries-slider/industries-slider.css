@@ -1,0 +1,115 @@
+.industries-slider {
+  padding-bottom: var(--space-lg);   /* reference: neeche 60px */
+  background: var(--color-white);
+}
+
+.industries-slider__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-block: 60px 40px;
+  text-align: center;
+}
+.industries-slider__heading {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.industries-slider__subheading {
+  margin: 0;
+  color: var(--color-dark);
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
+/* Slider: ek baar mein ek slide, baaki side mein chhupi */
+.industries-slider__viewport {
+  position: relative;
+  overflow: hidden;
+}
+.industries-slider__track {
+  display: flex;
+  transition: transform 0.6s ease;
+  touch-action: pan-y;               /* upar-neeche scroll browser kare, left-right swipe hum */
+}
+.industries-slider__track > * {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* Controls: neeche right */
+.industries-slider__controls {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.industries-slider__toggle,
+.industries-slider__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;                       /* click area 24px */
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-white);
+  cursor: pointer;
+}
+.industries-slider__toggle .icon-play { display: none; }
+.industries-slider__toggle.is-paused .icon-play { display: block; }
+.industries-slider__toggle.is-paused .icon-pause { display: none; }
+
+.industries-slider__dots { display: flex; gap: 4px; }
+/* Dikhne wala square 12px */
+.industries-slider__dot::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: background var(--transition);
+}
+.industries-slider__dot[aria-current="true"]::before { background: var(--color-white); }
+
+.industries-slider__toggle:focus-visible,
+.industries-slider__dot:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* Text animation: sirf jab JS chal chuki ho */
+.industries-slider.is-ready .industry-card__text {
+  opacity: 0;
+  transition: opacity 1s ease 0.2s, transform 1s ease 0.2s;
+}
+.industries-slider.is-ready .industries-slider__track > :nth-child(odd) .industry-card__text { transform: translateY(-20px); }
+.industries-slider.is-ready .industries-slider__track > :nth-child(even) .industry-card__text { transform: translateY(20px); }
+.industries-slider.is-ready .industries-slider__track > .is-active .industry-card__text {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ek hi slide ho toh controls ki zaroorat nahi */
+.industries-slider.is-static .industries-slider__controls { display: none; }
+
+/* Jinhe animation se dikkat hoti hai, unke liye sab band */
+@media (prefers-reduced-motion: reduce) {
+  .industries-slider__track,
+  .industries-slider.is-ready .industry-card__text { transition: none; }
+}
+
+@media (max-width: 834px) {
+  .industries-slider__controls { right: 14px; }   /* reference: mobile par right 30px */
+}

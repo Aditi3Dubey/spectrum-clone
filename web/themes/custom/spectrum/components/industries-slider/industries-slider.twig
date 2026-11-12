@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Industries Slider component.
+ */
+#}
+<section{{ attributes.addClass('industries-slider') }}
+  aria-roledescription="{{ 'carousel'|t }}"
+  aria-label="{{ heading }}"
+  data-autoplay="{{ autoplay ? 'true' : 'false' }}">
+
+  <div class="industries-slider__header container">
+    <h2 class="industries-slider__heading">{{ heading }}</h2>
+    {% if subheading %}
+      <p class="industries-slider__subheading">{{ subheading }}</p>
+    {% endif %}
+  </div>
+
+  <div class="industries-slider__viewport">
+    <div class="industries-slider__track">
+      {% block slides %}{% endblock %}
+    </div>
+
+    <div class="industries-slider__controls container">
+      <button class="industries-slider__toggle" type="button" aria-label="{{ 'Pause autoplay'|t }}">
+        <svg class="icon-pause" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="2" width="2.5" height="12" fill="currentColor"/><rect x="7.5" width="2.5" height="12" fill="currentColor"/></svg>
+        <svg class="icon-play" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><polygon points="11 6 1 12 1 0 11 6" fill="currentColor"/></svg>
+      </button>
+      <div class="industries-slider__dots"></div>
+    </div>
+  </div>
+</section>
