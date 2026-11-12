@@ -23,6 +23,7 @@
         "drupal/core-recipe-unpack": "^11.4",
         "drupal/core-recommended": "^11.4",
         "drupal/easy_breadcrumb": "^2.0",
+        "drupal/webform": "^6.3",
         "drush/drush": "^13.8"
     },
     "conflict": {

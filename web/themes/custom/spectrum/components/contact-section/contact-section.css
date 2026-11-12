@@ -1,0 +1,190 @@
+/* Grey notice bar */
+.contact-section__notice {
+  padding-block: 40px;
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-size: 20px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+.contact-section__notice p { margin: 0; }
+.contact-section__notice a { color: var(--color-red); text-decoration: none; }
+.contact-section__notice a:hover { text-decoration: underline; }
+
+.contact-section__main { padding-block: 80px; }
+
+.contact-section__heading {
+  margin: 0 0 40px;
+  color: var(--color-dark);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Border wala box: mobile par form upar, panel neeche */
+.contact-section__box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-light);
+}
+.contact-section__form { padding: 40px 20px; }
+
+/* ---------- Form fields (Webform ka HTML) ---------- */
+.contact-section__form form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.contact-section__form .form-item { margin: 0; }
+
+.contact-section__form input:not([type="submit"]),
+.contact-section__form select,
+.contact-section__form textarea {
+  width: 100%;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 0;
+  background: var(--color-white);
+  color: var(--color-dark);
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+.contact-section__form textarea {
+  height: auto;
+  min-height: 144px;
+  padding-block: 12px;
+  resize: vertical;
+}
+.contact-section__form select {
+  appearance: none;
+  padding-right: 40px;
+  background: var(--color-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M4.5 6.75 9 11.25l4.5-4.5' fill='none' stroke='%231e1e1e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center;
+}
+
+.contact-section__form ::placeholder { color: #8a8a8a; }
+.contact-section__form input:focus,
+.contact-section__form select:focus,
+.contact-section__form textarea:focus {
+  outline: 2px solid var(--color-red);
+  outline-offset: 0;
+  border-color: transparent;
+}
+/* Galat field: red border */
+.contact-section__form .error { border-color: var(--color-red); }
+
+/* Submit: outline wala button, reference jaisa */
+.contact-section__form .form-actions { margin: 0; }
+.contact-section__form input[type="submit"] {
+  min-width: 124px;
+  height: 50px;
+  padding: 0 24px;
+  border: 1px solid var(--color-navy);
+  border-radius: 0;
+  background: var(--color-white);
+  color: var(--color-navy);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.contact-section__form input[type="submit"]:hover,
+.contact-section__form input[type="submit"]:focus-visible {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+/* ---------- Right photo panel ---------- */
+.contact-section__panel {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+.contact-section__panel-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contact-section__panel::after {        /* text padhne ke liye dark overlay */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 31, 58, 0.45);
+
+}
+.contact-section__panel-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 64px 32px;
+}
+.contact-section__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+}
+.contact-section__panel-heading {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.contact-section__panel-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+/* Tablet: fields 2 column  */
+@media (min-width: 768px) {
+  .contact-section__form { padding: 60px 64px; }
+  .contact-section__form form {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+  }
+  /* Message and submit full width */
+  .contact-section__form .form-item-message,
+  .contact-section__form .form-actions { grid-column: 1 / -1; }
+}
+
+/* Desktop: form left, panel right (350px) */
+@media (min-width: 992px) {
+  .contact-section__box { flex-direction: row; }
+  .contact-section__form { flex: 1; }
+  .contact-section__panel { flex: 0 0 350px; }
+}
+
+@media (max-width: 575px) {
+  .contact-section__heading { font-size: 32px; }
+  .contact-section__notice { font-size: 18px; }
+  .contact-section__panel-heading { font-size: 40px; }
+}
+
+/* Field ke neeche error text */
+.contact-section__form .form-item--error-message {
+  margin-top: 6px;
+  color: var(--color-red);
+  font-size: 13px;
+}
+/* Thank-you message (inline confirmation) */
+.contact-section__form .webform-confirmation {
+  font-size: 20px;
+  line-height: 1.8;
+  color: var(--color-dark);
+}
