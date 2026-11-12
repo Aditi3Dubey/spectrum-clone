@@ -1,0 +1,42 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Industry Card
+description: 'Full-width banner with a darkened background photo, a red line, the industry name, a two-line description and a red "Learn More" button. Use it inside an Industries Slider, or on its own as a banner.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - image
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Background image'
+      description: 'Wide photo, at least 1920 x 600.'
+      examples:
+        - src: 'https://placehold.co/1920x600.png?text=Industry'
+          alt: 'Placeholder industry photo'
+          width: 1920
+          height: 600
+    heading:
+      type: string
+      title: 'Industry name'
+      examples:
+        - Aviation
+    text:
+      type: string
+      title: Description
+      description: 'Short text. Cut after 2 lines.'
+      examples:
+        - 'High-precision marking and stripping for the wiring inside civil and defence aircraft.'
+    url:
+      type: string
+      format: uri-reference
+      title: 'Button link'
+      examples:
+        - /industries
+    link_label:
+      type: string
+      title: 'Button text'
+      examples:
+        - 'Learn More'
