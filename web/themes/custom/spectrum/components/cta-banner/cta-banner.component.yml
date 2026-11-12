@@ -1,0 +1,52 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: CTA Banner
+description: 'Full-width photo with a dark, blurred box in the centre holding a heading, a short text and up to two red buttons. Use it at the end of a page to ask visitors to get in touch.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+    - image
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: 'Background image'
+      examples:
+        - src: 'https://placehold.co/1920x480.png?text=CTA'
+          alt: 'Placeholder background'
+          width: 1920
+          height: 480
+    heading:
+      type: string
+      title: Heading
+      examples:
+        - 'Ready to upgrade your wire processing?'
+    text:
+      type: string
+      title: Text
+      examples:
+        - 'See how our systems can speed up production, cut waste and deliver precise results every time.'
+    cta_label:
+      type: string
+      title: 'First button text'
+      examples:
+        - 'Contact us'
+    cta_url:
+      type: string
+      format: uri-reference
+      title: 'First button link'
+      examples:
+        - /contact
+    cta2_label:
+      type: string
+      title: 'Second button text'
+      description: 'Optional. Leave empty to show one button.'
+      examples:
+        - 'Send a free sample'
+    cta2_url:
+      type: string
+      format: uri-reference
+      title: 'Second button link'
+      examples:
+        - /contract-manufacturing

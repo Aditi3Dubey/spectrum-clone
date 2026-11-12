@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * CTA Banner component.
+ */
+#}
+{% set srcset = image.src ? image.src|toSrcSet(image.width) : null %}
+{% set arrow %}
+  <svg class="btn__icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+    <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+  </svg>
+{% endset %}
+
+<section{{ attributes.addClass('cta-banner') }}>
+  {% if image.src %}
+    <img class="cta-banner__image"
+         src="{{ image.src }}"
+         {% if srcset %}srcset="{{ srcset }}" sizes="100vw"{% endif %}
+         alt=""
+         {% if image.width %}width="{{ image.width }}"{% endif %}
+         {% if image.height %}height="{{ image.height }}"{% endif %}
+         loading="lazy">
+  {% endif %}
+
+  <div class="cta-banner__box">
+    <div class="cta-banner__text">
+      <h2 class="cta-banner__heading">{{ heading }}</h2>
+      {% if text %}
+        <p class="cta-banner__description">{{ text }}</p>
+      {% endif %}
+    </div>
+
+    {% if (cta_label and cta_url) or (cta2_label and cta2_url) %}
+      <div class="cta-banner__actions">
+        {% if cta_label and cta_url %}
+          <a class="btn" href="{{ cta_url }}">{{ cta_label }} {{ arrow }}</a>
+        {% endif %}
+        {% if cta2_label and cta2_url %}
+          <a class="btn" href="{{ cta2_url }}">{{ cta2_label }} {{ arrow }}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</section>
