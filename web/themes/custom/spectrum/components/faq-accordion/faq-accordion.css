@@ -1,0 +1,18 @@
+.faq-accordion {
+  padding-block: 30px;
+  background: var(--color-white);
+}
+
+.faq-accordion__heading {
+  margin: 0 0 40px;
+  color: var(--color-red);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+/* Pehle question ke upar bhi line, reference jaisa */
+.faq-accordion__list {
+  border-top: 1px solid var(--color-light);
+}

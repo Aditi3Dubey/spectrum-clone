@@ -1,0 +1,29 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: FAQ Item
+description: 'One question that opens to show its answer. Place it inside an FAQ Accordion.'
+group: 'Spectrum - Cards'
+status: stable
+props:
+  type: object
+  required:
+    - question
+  properties:
+    question:
+      type: string
+      title: Question
+      examples:
+        - 'How long does a laser mark last?'
+    answer:
+      type: string
+      title: Answer
+      description: 'Paragraphs, lists, bold and links are allowed.'
+      contentMediaType: text/html
+      x-formatting-context: block
+      examples:
+        - '<p>A laser mark is part of the insulation itself, so it stays readable for the whole life of the wire.</p>'
+    open:
+      type: boolean
+      title: 'Open by default'
+      description: 'Tick to show the answer when the page loads.'
+      examples:
+        - false
