@@ -1,0 +1,11 @@
+uuid: 5c6ef7cc-e209-4a8d-ae41-8b9839289139
+langcode: en
+status: true
+dependencies: {  }
+name: 'Wire Sample'
+type: wire_sample
+description: 'A laser-processed wire sample shown in the Wire Sample Gallery.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,47 @@
+uuid: 699e2ccb-8ea0-4d5d-8323-6d019e6c07eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.wire_sample.field_image
+    - field.field.node.wire_sample.field_industry
+    - field.field.node.wire_sample.field_process
+    - node.type.wire_sample
+  module:
+    - user
+id: node.wire_sample.default
+targetEntityType: node
+bundle: wire_sample
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_industry:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_process:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -1,0 +1,42 @@
+uuid: 9a293dc6-1bd5-4728-9352-3e0bf9da4107
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.news-card
+    - core.entity_view_mode.node.teaser
+    - field.field.media.image.field_media_image
+    - field.field.node.news.field_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.news
+  module:
+    - file
+    - media
+    - node
+id: node.news.teaser
+content_entity_type_id: node
+content_entity_type_bundle: news
+content_entity_type_view_mode: teaser
+component_tree:
+  '0:fd1cd498-9313-40f7-86e8-ed163a32020b':
+    uuid: fd1cd498-9313-40f7-86e8-ed163a32020b
+    component_id: sdc.spectrum.news-card
+    component_version: 28880a0d30df2603
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:news␝field_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      title:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:news␝title␞␟value'
+      url:
+        sourceType: host-entity-url
+        absolute: false
+      date:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node␝created␞␟value'
+        adapter: unix_to_date
+      badge: News
+exposed_slots: {  }
+page_variant: null

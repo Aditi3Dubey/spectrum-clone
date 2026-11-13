@@ -1,0 +1,33 @@
+uuid: 7be127f4-2979-4b0b-8313-cf2c7e623f3c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - spectrum
+active_version: 2f80782f3e5591de
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Laser Wire Marking'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions:
+        items:
+          title: Questions
+          description: 'Place FAQ Item components here.'
+label: 'FAQ Accordion'
+id: sdc.spectrum.faq-accordion
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:faq-accordion'

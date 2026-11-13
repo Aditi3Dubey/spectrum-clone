@@ -1,0 +1,23 @@
+uuid: 4beacc07-906d-4583-8153-fdef61d08c15
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wire_sample
+  module:
+    - node
+id: wire_sample
+label: 'Wire Sample'
+type: 'canonical_entities:node'
+pattern: '/resources/sample-gallery/[node:title]'
+selection_criteria:
+  e1d9254b-cd9c-44a4-a0b7-095b00d9b853:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      wire_sample: wire_sample
+selection_logic: and
+weight: -4
+relationships: {  }

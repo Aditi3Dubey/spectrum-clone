@@ -1,0 +1,26 @@
+uuid: b0f208cd-bbdb-46fc-b3e6-5138baad095f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+active_version: 1c6bc71bd45834b7
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:news-block_2'
+        label: 'All news'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'All news'
+id: block.views_block.news-block_2
+provider: views
+source: block
+source_local_id: 'views_block:news-block_2'

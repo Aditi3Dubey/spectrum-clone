@@ -1,0 +1,17 @@
+uuid: 14366f46-15ca-4424-b8e6-f469bf8dfc0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: News
+type: news
+description: 'News and event updates shown on the News page and homepage.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

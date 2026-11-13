@@ -1,0 +1,25 @@
+uuid: f691ee51-cd55-4ea1-bda1-e077c72db0e4
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - spectrum
+id: spectrum_footer
+theme: spectrum
+region: highlighted
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

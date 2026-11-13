@@ -1,0 +1,26 @@
+uuid: 9255cb7e-7be1-4520-9f13-d3778cc08684
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.wire_samples
+  module:
+    - views
+active_version: 35070dd1974fa747
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:wire_samples-block_1'
+        label: 'Wire sample gallery'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Wire sample gallery'
+id: block.views_block.wire_samples-block_1
+provider: views
+source: block
+source_local_id: 'views_block:wire_samples-block_1'

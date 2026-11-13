@@ -1,0 +1,98 @@
+uuid: da559d94-bed3-41e5-8560-6b744aad0ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+  module:
+    - file
+    - media
+    - media_library
+    - text
+  theme:
+    - spectrum
+active_version: 7794a7d6d663b834
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        notice:
+          required: false
+          field_type: text_long
+          field_storage_settings: {  }
+          field_instance_settings:
+            allowed_formats:
+              - canvas_html_block
+          field_widget: text_textarea
+          default_value:
+            -
+              value: '<p>If the form does not work for you, email us at <a href="mailto:hello@example.com">hello@example.com</a> and we will reply as soon as we can.</p>'
+              format: canvas_html_block
+          expression: ℹ︎text_long␟processed
+          derived_schema_metadata:
+            string_shape:
+              contentMediaType: text/html
+              x-formatting-context: block
+        heading:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Contact Us Form'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        panel_image:
+          required: true
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+          derived_schema_metadata: {  }
+        panel_heading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Contact us'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        panel_text:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Want to talk to us about a product or service? Fill in the form and we will get back to you soon.'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions:
+        form:
+          title: Form
+          description: 'Place the Webform block here and choose the Contact form.'
+label: 'Contact Section'
+id: sdc.spectrum.contact-section
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:contact-section'

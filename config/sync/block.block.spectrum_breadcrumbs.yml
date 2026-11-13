@@ -1,0 +1,24 @@
+uuid: 39466f4f-d6e2-4e1d-9ccb-5909c432a6c5
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - spectrum
+id: spectrum_breadcrumbs
+theme: spectrum
+region: highlighted
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

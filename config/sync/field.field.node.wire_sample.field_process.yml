@@ -1,0 +1,25 @@
+uuid: 40370451-c704-4859-b1a9-48c23664be25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_process
+    - node.type.wire_sample
+    - taxonomy.vocabulary.process
+id: node.wire_sample.field_process
+field_name: field_process
+entity_type: node
+bundle: wire_sample
+label: Process
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      process: process
+    auto_create: false
+field_type: entity_reference

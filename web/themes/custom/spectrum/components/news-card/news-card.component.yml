@@ -1,0 +1,41 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: News Card
+description: 'News teaser card: photo with a red badge, date, title (up to 3 lines) and an arrow. The whole card links to the article. Used by the News content template (Teaser view mode).'
+group: 'Spectrum - Cards'
+status: stable
+props:
+  type: object
+  required:
+    - title
+    - image
+  properties:
+    image:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Image
+      examples:
+        - src: 'https://placehold.co/1200x780.png?text=News'
+          alt: 'Placeholder news photo'
+          width: 1200
+          height: 780
+    title:
+      type: string
+      title: Title
+      examples:
+        - 'New UV laser marker launched for aerospace wiring'
+    url:
+      type: string
+      format: uri-reference
+      title: Link
+      examples:
+        - /news
+    date:
+      type: string
+      format: date
+      title: Date
+      examples:
+        - '2026-10-02'
+    badge:
+      type: string
+      title: Badge
+      examples:
+        - News

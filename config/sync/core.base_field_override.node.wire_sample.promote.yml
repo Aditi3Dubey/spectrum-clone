@@ -1,0 +1,22 @@
+uuid: 34ec76b9-d449-451a-805e-8c60f02b6f6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.wire_sample
+id: node.wire_sample.promote
+field_name: promote
+entity_type: node
+bundle: wire_sample
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: deb33949-d145-45ad-85a3-34909bb8a0c8
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.legal
+  module:
+    - system
+  theme:
+    - spectrum
+id: spectrum_legal
+theme: spectrum
+region: highlighted
+weight: 0
+provider: null
+plugin: 'system_menu_block:legal'
+settings:
+  id: 'system_menu_block:legal'
+  label: Legal
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

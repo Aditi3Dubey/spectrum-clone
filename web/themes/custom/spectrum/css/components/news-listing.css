@@ -1,0 +1,87 @@
+/* News listing (Views blocks: Latest news / All news) – page container ke andar */
+.news-listing {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: 60px var(--gutter);
+}
+
+/* Mini pager – center me, red links */
+.news-listing .pager__items {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.news-listing .pager__item a {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-weight: 700;
+  text-decoration: none;
+}
+.news-listing .pager__item a:hover { text-decoration: underline; }
+.news-listing .pager__item.is-active { align-self: center; }
+
+/* Wire Sample Gallery filters (Views exposed form) – reference jaisa: ek row, neeche border wale inputs */
+.sample-listing .views-exposed-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 20px 30px;
+  margin-bottom: 40px;
+}
+.sample-listing .views-exposed-form .form-item {
+  flex: 1 1 220px;
+  margin: 0;
+}
+.sample-listing .views-exposed-form label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-dark);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sample-listing .views-exposed-form input[type="text"],
+.sample-listing .views-exposed-form select {
+  width: 100%;
+  height: 44px;
+  padding: 0 4px;
+  border: 0;
+  border-bottom: 1px solid var(--color-dark);
+  border-radius: 0;
+  background-color: transparent;
+  color: var(--color-dark);
+  font: inherit;
+  font-size: 14px;
+}
+.sample-listing .views-exposed-form select {
+  appearance: none;
+  padding-right: 28px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23021f3a' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 6px center;
+}
+.sample-listing .views-exposed-form .form-actions {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+}
+.sample-listing .views-exposed-form .form-submit {
+  height: 44px;
+  padding: 0 24px;
+  border: 0;
+  background: var(--color-red);
+  color: var(--color-white);
+  font-weight: 700;
+  cursor: pointer;
+}
+.sample-listing .views-exposed-form .form-submit[id*="reset"] {
+  border: 1px solid var(--color-dark);
+  background: transparent;
+  color: var(--color-dark);
+}
+.sample-listing .views-exposed-form .form-submit:hover { text-decoration: underline; }
+.sample-listing .views-exposed-form :focus-visible { outline: 2px solid var(--color-red); outline-offset: 2px; }
+.sample-listing .view-empty { padding: 40px 0; text-align: center; }

@@ -1,0 +1,35 @@
+uuid: 9abb79c1-b0d0-4935-a1e4-50984ecd14ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+  theme:
+    - spectrum
+active_version: 57fcba823b591757
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        background:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: grey
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+    fallback_metadata:
+      slot_definitions:
+        cards:
+          title: Cards
+          description: 'Place Stat Card components here.'
+label: 'Stat Card Grid'
+id: sdc.spectrum.stat-grid
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:stat-grid'

@@ -1,0 +1,8 @@
+uuid: ded23262-6d0c-40f4-9b02-bd7b262c9296
+langcode: en
+status: true
+dependencies: {  }
+id: legal
+label: Legal
+description: 'Legal links in the footer bottom bar.'
+locked: false

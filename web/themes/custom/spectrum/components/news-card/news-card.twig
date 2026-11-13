@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * News Card component.
+ */
+#}
+{% set srcset = image.src ? image.src|toSrcSet(image.width) : null %}
+
+<article{{ attributes.addClass('news-card') }}>
+  <div class="news-card__media">
+    {% if image.src %}
+      <img class="news-card__image"
+           src="{{ image.src }}"
+           {% if srcset %}srcset="{{ srcset }}" sizes="(min-width: 992px) 400px, 100vw"{% endif %}
+           alt="{{ image.alt }}"
+           {% if image.width %}width="{{ image.width }}"{% endif %}
+           {% if image.height %}height="{{ image.height }}"{% endif %}
+           loading="lazy">
+    {% endif %}
+    <span class="news-card__badge">{{ badge|default('News') }}</span>
+  </div>
+
+  <div class="news-card__content">
+    {% if date %}
+      <time class="news-card__date" datetime="{{ date }}">{{ date|date('d F Y') }}</time>
+    {% endif %}
+    <div class="news-card__title-wrap">
+      <h3 class="news-card__title">
+        {% if url %}
+          <a class="news-card__link" href="{{ url }}">{{ title }}</a>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h3>
+      <svg class="news-card__arrow" width="20" height="20" viewBox="0 0 14 14" aria-hidden="true">
+        <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+</article>
