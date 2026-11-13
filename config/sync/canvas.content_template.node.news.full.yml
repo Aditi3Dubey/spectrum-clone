@@ -1,0 +1,94 @@
+uuid: ae4032b2-b37b-45be-aa37-d4f2011addba
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.views_block.news-block_1
+    - canvas.component.sdc.spectrum.cta-banner
+    - canvas.component.sdc.spectrum.image-content
+    - canvas.component.sdc.spectrum.text-block
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.node.news.field_body
+    - field.field.node.news.field_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.news
+  content:
+    - 'file:file:57d01b29-9742-4582-a93a-e9f7aafced48'
+    - 'media:image:989a687c-b3b6-4adb-84b5-4fe2842fae53'
+  module:
+    - file
+    - link
+    - media
+    - node
+    - options
+id: node.news.full
+content_entity_type_id: node
+content_entity_type_bundle: news
+content_entity_type_view_mode: full
+component_tree:
+  '0:81b2251c-feed-4391-b375-1630b4b76e67':
+    uuid: 81b2251c-feed-4391-b375-1630b4b76e67
+    component_id: sdc.spectrum.image-content
+    component_version: 894efd703e457fa0
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:news␝field_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      eyebrow: News
+      heading:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:news␝title␞␟value'
+      heading_level: h1
+      cta_url:
+        uri: 'internal:/contact'
+        options: {  }
+      image_position: right
+      image_style: photo
+      background: grey
+  '1:cb4fddb3-032f-468e-984d-9540136af6a8':
+    uuid: cb4fddb3-032f-468e-984d-9540136af6a8
+    component_id: sdc.spectrum.text-block
+    component_version: d543b6747878d5d2
+    inputs:
+      heading_color: red
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:news␝field_body␞␟processed'
+  '2:bea38e33-44b7-4f5e-86a7-73fcff37c468':
+    uuid: bea38e33-44b7-4f5e-86a7-73fcff37c468
+    component_id: sdc.spectrum.text-block
+    component_version: d543b6747878d5d2
+    inputs:
+      heading: 'Latest News'
+      heading_level: h2
+      heading_color: dark
+  '3:629c9b83-72ed-4d2b-80e4-eb04c9ff64cd':
+    uuid: 629c9b83-72ed-4d2b-80e4-eb04c9ff64cd
+    component_id: block.views_block.news-block_1
+    component_version: 69cc5ca818851a4e
+    inputs:
+      label: 'Latest News'
+      label_display: '0'
+      views_label: ''
+      items_per_page: null
+  '4:9fad8694-f38d-4990-abdc-bc8dd94e8e55':
+    uuid: 9fad8694-f38d-4990-abdc-bc8dd94e8e55
+    component_id: sdc.spectrum.cta-banner
+    component_version: 652f59e09786cb62
+    inputs:
+      image:
+        target_id: '10'
+      heading: 'Ready to upgrade your wire processing?'
+      text: 'See how our systems can speed up production, cut waste and deliver precise results every time.'
+      cta_label: 'Contact us'
+      cta_url:
+        uri: 'internal:/contact'
+        options: {  }
+      cta2_label: 'Send a free sample'
+      cta2_url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+exposed_slots: {  }
+page_variant: null

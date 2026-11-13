@@ -4,3 +4,5 @@ global:
     base:
       css/base/variables.css: {}
       css/base/base.css: {}
+    component:
+      css/components/news-listing.css: {}

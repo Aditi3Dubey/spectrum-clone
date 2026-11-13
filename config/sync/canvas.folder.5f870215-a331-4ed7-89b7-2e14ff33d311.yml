@@ -1,0 +1,13 @@
+uuid: 5f870215-a331-4ed7-89b7-2e14ff33d311
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.site-footer
+    - canvas.component.sdc.spectrum.site-header
+name: 'Spectrum - Global'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.spectrum.site-footer
+  - sdc.spectrum.site-header

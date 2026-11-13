@@ -1,0 +1,56 @@
+uuid: 5ee35130-e5b8-4e92-a121-ba2e11e3ea66
+langcode: en
+status: true
+dependencies:
+  theme:
+    - spectrum
+active_version: 10567b6b52212ce9
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Industries
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        subheading:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Where Our Systems Work'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        autoplay:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value:
+            -
+              value: true
+          expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
+    fallback_metadata:
+      slot_definitions:
+        slides:
+          title: Slides
+          description: 'Place Industry Card components here. Each card becomes one slide.'
+label: 'Industries Slider'
+id: sdc.spectrum.industries-slider
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:industries-slider'

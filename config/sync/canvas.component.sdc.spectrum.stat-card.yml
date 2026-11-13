@@ -1,0 +1,60 @@
+uuid: 34550080-6322-4b12-9648-c1466d59457e
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: 47ab874eb77aa147
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: '30+ Years of Engineering'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        text:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Designing precise laser systems for wire processing since the early 1990s.'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /about
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Stat Card'
+id: sdc.spectrum.stat-card
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:stat-card'

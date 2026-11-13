@@ -1,0 +1,110 @@
+uuid: e826306f-25f0-407f-9966-074606d35ff0
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: 2f84dac686d58324
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        logo_src:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: /themes/custom/spectrum/logo.svg
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        logo_alt:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'SpectraTech home'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        copyright:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: '©2026 SpectraTech. All rights reserved.'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        x_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://x.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        linkedin_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://www.linkedin.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        youtube_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://www.youtube.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions:
+        menu:
+          title: 'Footer menu'
+          description: 'Place the Footer menu block here.'
+        legal:
+          title: 'Legal links'
+          description: 'Place the Legal menu block here.'
+label: 'Site Footer'
+id: sdc.spectrum.site-footer
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:site-footer'

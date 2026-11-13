@@ -1,0 +1,19 @@
+uuid: 8ea3e4b4-9cf7-4f86-8988-962acde4f4f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.views_block.content_recent-block_1
+    - canvas.component.block.views_block.news-block_1
+    - canvas.component.block.views_block.news-block_2
+    - canvas.component.block.views_block.who_s_online-who_s_online_block
+    - canvas.component.block.views_block.wire_samples-block_1
+name: 'Lists (Views)'
+configEntityTypeId: component
+weight: 0
+items:
+  - block.views_block.content_recent-block_1
+  - block.views_block.news-block_1
+  - block.views_block.news-block_2
+  - block.views_block.who_s_online-who_s_online_block
+  - block.views_block.wire_samples-block_1

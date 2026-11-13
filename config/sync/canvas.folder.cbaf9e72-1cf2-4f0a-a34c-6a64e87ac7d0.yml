@@ -1,0 +1,15 @@
+uuid: cbaf9e72-1cf2-4f0a-a34c-6a64e87ac7d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.faq-item
+    - canvas.component.sdc.spectrum.news-card
+    - canvas.component.sdc.spectrum.product-card
+name: 'Spectrum - Cards'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.spectrum.faq-item
+  - sdc.spectrum.news-card
+  - sdc.spectrum.product-card

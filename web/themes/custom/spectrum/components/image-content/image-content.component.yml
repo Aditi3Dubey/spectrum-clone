@@ -29,6 +29,19 @@ props:
       title: Heading
       examples:
         - 'Built for precision, made to scale'
+    heading_level:
+      type: string
+      title: 'Heading level'
+      description: 'Use H1 only when this section is the page title (for example a News detail page).'
+      enum:
+        - h1
+        - h2
+      meta:enum:
+        h1: 'H1 (page title)'
+        h2: 'H2 (section title)'
+      examples:
+        - h2
+
     text:
       type: string
       title: Text

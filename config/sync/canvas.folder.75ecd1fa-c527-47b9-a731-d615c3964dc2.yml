@@ -1,0 +1,35 @@
+uuid: 75ecd1fa-c527-47b9-a731-d615c3964dc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.contact-section
+    - canvas.component.sdc.spectrum.cta-banner
+    - canvas.component.sdc.spectrum.faq-accordion
+    - canvas.component.sdc.spectrum.hero
+    - canvas.component.sdc.spectrum.image-content
+    - canvas.component.sdc.spectrum.industries-slider
+    - canvas.component.sdc.spectrum.industry-card
+    - canvas.component.sdc.spectrum.intro-text
+    - canvas.component.sdc.spectrum.page-banner
+    - canvas.component.sdc.spectrum.product-grid
+    - canvas.component.sdc.spectrum.stat-card
+    - canvas.component.sdc.spectrum.stat-grid
+    - canvas.component.sdc.spectrum.text-block
+name: 'Spectrum - Sections'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.spectrum.contact-section
+  - sdc.spectrum.cta-banner
+  - sdc.spectrum.faq-accordion
+  - sdc.spectrum.hero
+  - sdc.spectrum.image-content
+  - sdc.spectrum.industries-slider
+  - sdc.spectrum.industry-card
+  - sdc.spectrum.intro-text
+  - sdc.spectrum.page-banner
+  - sdc.spectrum.product-grid
+  - sdc.spectrum.stat-card
+  - sdc.spectrum.stat-grid
+  - sdc.spectrum.text-block

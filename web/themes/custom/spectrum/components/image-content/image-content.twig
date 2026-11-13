@@ -14,6 +14,7 @@
   'image-content--' ~ position,
   'image-content--' ~ style,
   'image-content--' ~ background,
+  not text and not cta_label ? 'image-content--no-text',
 ]) }}>
   <div class="image-content__inner container">
     <div class="image-content__media">
@@ -34,7 +35,8 @@
           <p class="image-content__label">{{ eyebrow }}</p>
         {% endif %}
 
-        <h2 class="image-content__heading">{{ heading }}</h2>
+        {% set level = heading_level == 'h1' ? 'h1' : 'h2' %}
+        <{{ level }} class="image-content__heading">{{ heading }}</{{ level }}>
 
         {% if text %}
           <div class="image-content__text">{{ text }}</div>

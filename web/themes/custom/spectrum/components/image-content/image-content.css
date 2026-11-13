@@ -129,3 +129,7 @@
   .image-content__media,
   .image-content__body { max-width: 620px; }
 }
+/* No text styling */
+@media (min-width: 1200px) {
+  .image-content--no-text .image-content__inner { align-items: center; }
+}

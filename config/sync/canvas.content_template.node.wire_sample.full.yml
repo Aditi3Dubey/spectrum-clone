@@ -1,0 +1,81 @@
+uuid: 94143cb6-4a27-4e10-b56f-7f37fe55aff6
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.cta-banner
+    - canvas.component.sdc.spectrum.image-content
+    - canvas.component.sdc.spectrum.text-block
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.node.wire_sample.field_image
+    - field.field.node.wire_sample.field_process
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.wire_sample
+    - taxonomy.vocabulary.process
+  content:
+    - 'file:file:57d01b29-9742-4582-a93a-e9f7aafced48'
+    - 'media:image:989a687c-b3b6-4adb-84b5-4fe2842fae53'
+  module:
+    - file
+    - link
+    - media
+    - node
+    - options
+    - taxonomy
+    - text
+id: node.wire_sample.full
+content_entity_type_id: node
+content_entity_type_bundle: wire_sample
+content_entity_type_view_mode: full
+component_tree:
+  '0:c02f8532-f37f-4444-97cb-5118e9347c34':
+    uuid: c02f8532-f37f-4444-97cb-5118e9347c34
+    component_id: sdc.spectrum.image-content
+    component_version: 894efd703e457fa0
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝field_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      eyebrow:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝field_process␞␟entity␜␜entity:taxonomy_term:process␝name␞␟value'
+      heading:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝title␞␟value'
+      heading_level: h1
+      image_position: right
+      image_style: product
+      background: grey
+  '1:56b767dc-b68c-4867-9a1c-3af52ed53b02':
+    uuid: 56b767dc-b68c-4867-9a1c-3af52ed53b02
+    component_id: sdc.spectrum.text-block
+    component_version: d543b6747878d5d2
+    inputs:
+      heading: 'Want to see your own wire?'
+      heading_level: h2
+      heading_color: dark
+      text:
+        value: '<p>This sample was processed on one of our laser systems. Send us your own wire and we will mark or strip it free of charge, so you can judge the quality on your exact material. <a href="/contract-manufacturing">Request a free sample</a> or <a href="/resources/sample-gallery">browse more samples</a>.</p>'
+        format: canvas_html_block
+  '2:aace0dcd-8bdd-4ab1-89f5-dfcb84a21b89':
+    uuid: aace0dcd-8bdd-4ab1-89f5-dfcb84a21b89
+    component_id: sdc.spectrum.cta-banner
+    component_version: 652f59e09786cb62
+    inputs:
+      image:
+        target_id: '10'
+      heading: 'Ready to upgrade your wire processing?'
+      text: 'See how our systems can speed up production, cut waste and deliver precise results every time.'
+      cta_label: 'Contact us'
+      cta_url:
+        uri: 'internal:/contact'
+        options: {  }
+      cta2_label: 'Send a free sample'
+      cta2_url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+exposed_slots: {  }
+page_variant: null

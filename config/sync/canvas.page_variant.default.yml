@@ -1,0 +1,107 @@
+uuid: 05febe12-44b0-49ae-9a0c-63363ebbf1b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.system_breadcrumb_block
+    - canvas.component.block.system_menu_block.footer
+    - canvas.component.block.system_menu_block.legal
+    - canvas.component.block.system_menu_block.main
+    - canvas.component.block.system_messages_block
+    - canvas.component.marker.page_content
+    - canvas.component.sdc.spectrum.site-footer
+    - canvas.component.sdc.spectrum.site-header
+  module:
+    - link
+id: default
+label: Default
+description: ''
+component_tree:
+  6902463c-d57c-4444-951e-734d62fb8f66:
+    uuid: 6902463c-d57c-4444-951e-734d62fb8f66
+    component_id: sdc.spectrum.site-header
+    component_version: 5057817266762d22
+    inputs:
+      logo_src: /themes/custom/spectrum/logo.svg
+      logo_alt: 'SpectraTech home'
+      home_url:
+        uri: 'internal:/'
+        options: {  }
+      contact_url:
+        uri: 'internal:/contact'
+        options: {  }
+      search_url:
+        uri: 'internal:/search/node'
+        options: {  }
+  c51d959a-7468-42fc-a4fd-ca5d580d0d7d:
+    parent_uuid: 6902463c-d57c-4444-951e-734d62fb8f66
+    slot: navigation
+    uuid: c51d959a-7468-42fc-a4fd-ca5d580d0d7d
+    component_id: block.system_menu_block.main
+    component_version: 322535c0078cf59c
+    inputs:
+      label: 'Main navigation'
+      label_display: '0'
+      level: 1
+      depth: 3
+      expand_all_items: true
+  68507ca0-1b52-4400-84bd-e7f0879ad77b:
+    uuid: 68507ca0-1b52-4400-84bd-e7f0879ad77b
+    component_id: block.system_breadcrumb_block
+    component_version: 0d7e961dd03aa710
+    inputs:
+      label: Breadcrumbs
+      label_display: '0'
+  107e2903-b760-42ab-932c-6d6386876644:
+    uuid: 107e2903-b760-42ab-932c-6d6386876644
+    component_id: block.system_messages_block
+    component_version: 1609d44df6c8b26a
+    inputs:
+      label: Messages
+      label_display: '0'
+  be35daf0-626c-418d-b25e-04afa9b6e92a:
+    uuid: be35daf0-626c-418d-b25e-04afa9b6e92a
+    component_id: marker.page_content
+    component_version: 3b12c0b99a6caecc
+    inputs: {  }
+  4838bc8c-109d-4116-901d-a03eba21ae00:
+    uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+    component_id: sdc.spectrum.site-footer
+    component_version: 2f84dac686d58324
+    inputs:
+      logo_src: /themes/custom/spectrum/logo.svg
+      logo_alt: 'SpectraTech home'
+      copyright: '©2026 SpectraTech. All rights reserved.'
+      x_url:
+        uri: 'https://x.com'
+        options: {  }
+      linkedin_url:
+        uri: 'https://www.linkedin.com'
+        options: {  }
+      youtube_url:
+        uri: 'https://www.youtube.com'
+        options: {  }
+  ccb7d5e7-3d6d-4f1a-95b2-80588bed5ddb:
+    parent_uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+    slot: menu
+    uuid: ccb7d5e7-3d6d-4f1a-95b2-80588bed5ddb
+    component_id: block.system_menu_block.footer
+    component_version: 075503dbc228a45c
+    inputs:
+      label: Footer
+      label_display: '0'
+      level: 1
+      depth: 2
+      expand_all_items: true
+  8a0c4796-73c0-4b9d-800f-23f9f4a54bf5:
+    parent_uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+    slot: legal
+    uuid: 8a0c4796-73c0-4b9d-800f-23f9f4a54bf5
+    component_id: block.system_menu_block.legal
+    component_version: ff4e292c4e7039fa
+    inputs:
+      label: Legal
+      label_display: '0'
+      level: 1
+      depth: null
+      expand_all_items: true

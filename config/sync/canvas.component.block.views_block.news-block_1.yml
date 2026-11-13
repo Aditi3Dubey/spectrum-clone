@@ -1,0 +1,37 @@
+uuid: c4487cca-617e-4b47-875d-fc2943021417
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - views
+active_version: 69cc5ca818851a4e
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:news-block_1'
+        label: 'Latest News'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+  ebc07ed502301963:
+    settings:
+      default_settings:
+        id: 'views_block:news-block_1'
+        label: News
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Latest News'
+id: block.views_block.news-block_1
+provider: views
+source: block
+source_local_id: 'views_block:news-block_1'

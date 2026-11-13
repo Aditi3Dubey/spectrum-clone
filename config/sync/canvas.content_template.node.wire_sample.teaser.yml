@@ -1,0 +1,43 @@
+uuid: ac3980e8-d4a0-45e0-a682-bef1b0c1d10f
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.news-card
+    - core.entity_view_mode.node.teaser
+    - field.field.media.image.field_media_image
+    - field.field.node.wire_sample.field_image
+    - field.field.node.wire_sample.field_process
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.wire_sample
+    - taxonomy.vocabulary.process
+  module:
+    - file
+    - media
+    - node
+    - taxonomy
+id: node.wire_sample.teaser
+content_entity_type_id: node
+content_entity_type_bundle: wire_sample
+content_entity_type_view_mode: teaser
+component_tree:
+  '0:ac7e3e81-600b-46fd-9f4b-c33af698208d':
+    uuid: ac7e3e81-600b-46fd-9f4b-c33af698208d
+    component_id: sdc.spectrum.news-card
+    component_version: 28880a0d30df2603
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝field_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      title:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝title␞␟value'
+      url:
+        sourceType: host-entity-url
+        absolute: false
+      badge:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:wire_sample␝field_process␞␟entity␜␜entity:taxonomy_term:process␝name␞␟value'
+exposed_slots: {  }
+page_variant: null
