@@ -1,0 +1,51 @@
+uuid: f91f249e-5640-44d7-a567-27bc6f4f6df7
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: 19a9c3879bad2bdc
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        heading:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Wire Processing'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        heading_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /products
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions:
+        links:
+          title: Links
+          description: 'Add Header Menu Link components here.'
+label: 'Header Menu Column'
+id: sdc.spectrum.header-menu-column
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:header-menu-column'

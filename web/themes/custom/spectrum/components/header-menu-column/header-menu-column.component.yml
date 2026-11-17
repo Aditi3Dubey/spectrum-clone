@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Header Menu Column
+description: 'A column in the mega dropdown with a heading and links. Place it in the Columns slot of a Header Menu Item.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - heading
+  properties:
+    heading:
+      type: string
+      title: 'Column heading'
+      examples:
+        - 'Wire Processing'
+    heading_url:
+      type: string
+      format: uri-reference
+      title: 'Heading link'
+      description: 'Optional. Leave empty for a plain heading.'
+      examples:
+        - /products
+slots:
+  links:
+    title: Links
+    description: 'Add Header Menu Link components here.'

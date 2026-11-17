@@ -1,23 +1,21 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Site Footer
-description: 'Light grey footer with logo, social links, a Footer menu slot, copyright text and a Legal links slot. Place it once in the Canvas page template.'
-group: 'Spectrum - Global'
+description: 'Light grey footer with logo, social links, a Footer menu slot for Footer Columns, copyright text and a Legal links slot for Footer Links. Place it once in the Canvas page template.'
+group: 'Spectrum - Header & Footer'
 status: stable
 props:
   type: object
   required:
-    - logo_src
+    - logo
   properties:
-    logo_src:
-      type: string
-      title: 'Logo path'
+    logo:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Logo
       examples:
-        - /themes/custom/spectrum/logo.svg
-    logo_alt:
-      type: string
-      title: 'Logo alt text'
-      examples:
-        - 'SpectraTech home'
+        - src: /themes/custom/spectrum/logo.svg
+          alt: 'SpectraTech home'
+          width: 179
+          height: 40
     copyright:
       type: string
       title: 'Copyright text'
@@ -44,7 +42,7 @@ props:
 slots:
   menu:
     title: 'Footer menu'
-    description: 'Place the Footer menu block here.'
+    description: 'Add Footer Column components here.'
   legal:
     title: 'Legal links'
-    description: 'Place the Legal menu block here.'
+    description: 'Add Footer Link components here.'

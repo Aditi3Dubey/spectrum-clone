@@ -1,0 +1,19 @@
+uuid: ffc9cd3b-e99b-4049-a445-64638d9d2478
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.footer-column
+    - canvas.component.sdc.spectrum.footer-link
+    - canvas.component.sdc.spectrum.header-menu-column
+    - canvas.component.sdc.spectrum.header-menu-item
+    - canvas.component.sdc.spectrum.header-menu-link
+name: 'Spectrum - Header & Footer'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.spectrum.footer-column
+  - sdc.spectrum.footer-link
+  - sdc.spectrum.header-menu-column
+  - sdc.spectrum.header-menu-item
+  - sdc.spectrum.header-menu-link

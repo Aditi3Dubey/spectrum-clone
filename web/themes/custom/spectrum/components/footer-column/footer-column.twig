@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Footer Column component.
+ */
+#}
+<li{{ attributes.addClass('footer-menu__column') }}>
+  {% if title_url %}
+    <a class="footer-menu__title" href="{{ title_url }}">{{ title }}</a>
+  {% else %}
+    <span class="footer-menu__title">{{ title }}</span>
+  {% endif %}
+
+  <ul class="footer-menu__list">
+    {% block links %}{% endblock %}
+  </ul>
+</li>

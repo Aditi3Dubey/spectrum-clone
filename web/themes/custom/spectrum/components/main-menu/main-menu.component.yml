@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Main Menu
-description: 'Mega dropdown main navigation (3 levels). Desktop opens on hover/click as a full-width panel; mobile uses an accordion. Rendered by the menu--main template, so it is hidden from Canvas.'
+description: 'Shared CSS and JS for the mega dropdown menu (desktop full-width panel, mobile accordion). Header Menu Item loads this library. Hidden from Canvas: editors build the menu with Header Menu Item, Header Menu Column and Header Menu Link.'
 group: 'Spectrum - Global'
 status: stable
 noUi: true

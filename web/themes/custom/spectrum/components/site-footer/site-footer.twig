@@ -9,7 +9,7 @@
 
     <div class="site-footer__top">
       <a class="site-footer__logo" href="/" rel="home">
-        <img src="{{ logo_src }}" alt="{{ logo_alt|default('Home') }}" width="179" height="40" loading="lazy">
+        <img src="{{ logo.src }}" alt="{{ logo.alt|default('Home') }}" width="179" height="40" loading="lazy">
       </a>
 
       {% if x_url or linkedin_url or youtube_url %}
@@ -37,14 +37,18 @@
     </div>
 
     <div class="site-footer__menu">
-      {% block menu %}{% endblock %}
+      <ul class="footer-menu">
+        {% block menu %}{% endblock %}
+      </ul>
     </div>
 
     <div class="site-footer__bottom">
       {% if copyright %}
         <p class="site-footer__copyright">{{ copyright }}</p>
       {% endif %}
-      {% block legal %}{% endblock %}
+      <ul class="legal-menu">
+        {% block legal %}{% endblock %}
+      </ul>
     </div>
 
   </div>

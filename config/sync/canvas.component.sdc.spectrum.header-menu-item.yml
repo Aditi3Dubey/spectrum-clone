@@ -1,0 +1,63 @@
+uuid: 5c73f184-a3fb-4eff-b230-8e33662249b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: 634fa0204b100764
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        title:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Products
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /products
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        explore_text:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Explore all products'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions:
+        columns:
+          title: 'Dropdown columns'
+          description: 'Add Header Menu Column components here. Leave empty for a plain link.'
+label: 'Header Menu Item'
+id: sdc.spectrum.header-menu-item
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:header-menu-item'

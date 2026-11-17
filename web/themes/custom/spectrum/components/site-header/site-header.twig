@@ -8,11 +8,15 @@
   <div class="site-header__bar container">
 
     <a class="site-header__logo" href="{{ home_url|default('/') }}" rel="home">
-      <img src="{{ logo_src }}" alt="{{ logo_alt|default('Home') }}" width="179" height="40">
+      <img src="{{ logo.src }}" alt="{{ logo.alt|default('Home') }}" width="179" height="40">
     </a>
 
     <div class="site-header__nav" id="site-header-nav">
-      {% block navigation %}{% endblock %}
+      <nav class="main-menu" aria-label="{{ 'Main navigation'|t }}">
+        <ul class="main-menu__list">
+          {% block navigation %}{% endblock %}
+        </ul>
+      </nav>
     </div>
 
     <div class="site-header__actions">

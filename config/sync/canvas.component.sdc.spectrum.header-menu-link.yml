@@ -1,0 +1,48 @@
+uuid: 9bfa8cd7-60a9-49f6-8569-1de90a17a627
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: 3e351557f6c5fc9c
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Cut & Strip'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /products
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Header Menu Link'
+id: sdc.spectrum.header-menu-link
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:header-menu-link'

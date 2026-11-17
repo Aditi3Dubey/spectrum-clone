@@ -1,24 +1,21 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Site Header
-description: 'Sticky site header with logo, a Navigation slot for the main menu block, search panel, contact icon and mobile hamburger. Place it once in the Canvas page template.'
-group: 'Spectrum - Global'
+description: 'Sticky site header with logo, a Navigation slot for Header Menu Items, search panel, contact icon and mobile hamburger. Place it once in the Canvas page template.'
+group: 'Spectrum - Header & Footer'
 status: stable
 props:
   type: object
   required:
-    - logo_src
+    - logo
   properties:
-    logo_src:
-      type: string
-      title: 'Logo path'
-      description: 'Path to the logo image.'
+    logo:
+      $ref: json-schema-definitions://canvas.module/image
+      title: Logo
       examples:
-        - /themes/custom/spectrum/logo.svg
-    logo_alt:
-      type: string
-      title: 'Logo alt text'
-      examples:
-        - 'SpectraTech home'
+        - src: /themes/custom/spectrum/logo.svg
+          alt: 'SpectraTech home'
+          width: 179
+          height: 40
     home_url:
       type: string
       format: uri-reference
@@ -41,8 +38,9 @@ props:
 slots:
   navigation:
     title: Navigation
-    description: 'Place the Main navigation menu block here.'
+    description: 'Add Header Menu Item components here.'
 libraryOverrides:
   dependencies:
     - core/drupal
     - core/once
+    - core/components.spectrum--main-menu
