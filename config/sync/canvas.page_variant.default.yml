@@ -8,13 +8,16 @@ dependencies:
     - canvas.component.marker.page_content
     - canvas.component.sdc.spectrum.footer-column
     - canvas.component.sdc.spectrum.footer-link
+    - canvas.component.sdc.spectrum.header-icon-link
     - canvas.component.sdc.spectrum.header-menu-column
     - canvas.component.sdc.spectrum.header-menu-item
     - canvas.component.sdc.spectrum.header-menu-link
     - canvas.component.sdc.spectrum.site-footer
     - canvas.component.sdc.spectrum.site-header
+    - canvas.component.sdc.spectrum.social-link
   module:
     - link
+    - options
 id: default
 label: Default
 description: ''
@@ -22,7 +25,7 @@ component_tree:
   e2407508-53cb-436a-b1a1-820f2bdba6b2:
     uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
     component_id: sdc.spectrum.site-header
-    component_version: 77b0f881ee12059b
+    component_version: dad7a54ed46d52ca
     inputs:
       logo:
         sourceType: default-relative-url
@@ -53,12 +56,24 @@ component_tree:
       home_url:
         uri: 'internal:/'
         options: {  }
-      contact_url:
-        uri: 'internal:/contact'
-        options: {  }
+      show_search: true
       search_url:
         uri: 'internal:/search/node'
         options: {  }
+      search_placeholder: 'Search the site'
+      search_button_label: Search
+  ff0fe6a8-360f-459a-b330-7fbffd88ec68:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: actions
+    uuid: ff0fe6a8-360f-459a-b330-7fbffd88ec68
+    component_id: sdc.spectrum.header-icon-link
+    component_version: 82b158628681ef35
+    inputs:
+      icon: mail
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+      label: 'Contact us'
   8610e492-aaee-4e24-9969-a219dd99c7a2:
     parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
     slot: navigation
@@ -875,7 +890,7 @@ component_tree:
   2dc91f3f-ae7d-4d5a-b817-53c6847ed726:
     uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
     component_id: sdc.spectrum.site-footer
-    component_version: 2857e9c395d35107
+    component_version: 2a08d9d653c2fbbe
     inputs:
       logo:
         sourceType: default-relative-url
@@ -903,14 +918,41 @@ component_tree:
           required:
             - src
         componentId: sdc.spectrum.site-footer
+      home_url:
+        uri: 'internal:/'
+        options: {  }
       copyright: '©2026 SpectraTech. All rights reserved.'
-      x_url:
+  262a2039-8fd5-404c-b601-6b935ff8208f:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 262a2039-8fd5-404c-b601-6b935ff8208f
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: x
+      url:
         uri: 'https://x.com'
         options: {  }
-      linkedin_url:
+  22f83270-dad5-4b5d-89cf-e80fd811c32a:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 22f83270-dad5-4b5d-89cf-e80fd811c32a
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: linkedin
+      url:
         uri: 'https://www.linkedin.com'
         options: {  }
-      youtube_url:
+  9fa2d4df-4304-48a8-8cda-2c413c5ffe01:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 9fa2d4df-4304-48a8-8cda-2c413c5ffe01
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: youtube
+      url:
         uri: 'https://www.youtube.com'
         options: {  }
   fb4ed334-c3af-4e2e-a335-51f16c16986d:

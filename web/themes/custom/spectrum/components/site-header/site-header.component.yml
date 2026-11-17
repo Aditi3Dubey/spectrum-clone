@@ -1,6 +1,6 @@
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 name: Site Header
-description: 'Sticky site header with logo, a Navigation slot for Header Menu Items, search panel, contact icon and mobile hamburger. Place it once in the Canvas page template.'
+description: 'Sticky site header with logo, a Navigation slot for Header Menu Items, search panel, an Actions slot for icon links and mobile hamburger. Place it once in the Canvas page template.'
 group: 'Spectrum - Header & Footer'
 status: stable
 props:
@@ -22,23 +22,36 @@ props:
       title: 'Home link'
       examples:
         - /
-    contact_url:
-      type: string
-      format: uri-reference
-      title: 'Contact link'
-      description: 'Mail icon link. Leave empty to hide the icon.'
+    show_search:
+      type: boolean
+      title: 'Show search'
+      description: 'Shows the search icon and search panel.'
+      default: true
       examples:
-        - /contact
+        - true
     search_url:
       type: string
       format: uri-reference
       title: 'Search page URL'
       examples:
         - /search/node
+    search_placeholder:
+      type: string
+      title: 'Search placeholder'
+      examples:
+        - 'Search the site'
+    search_button_label:
+      type: string
+      title: 'Search button text'
+      examples:
+        - 'Search'
 slots:
   navigation:
     title: Navigation
     description: 'Add Header Menu Item components here.'
+  actions:
+    title: Actions
+    description: 'Add Header Icon Link components here (e.g. contact, phone). Shown next to the search icon.'
 libraryOverrides:
   dependencies:
     - core/drupal

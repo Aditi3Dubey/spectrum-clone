@@ -1,0 +1,61 @@
+uuid: 6d28853d-eb4f-4a75-b28c-011c7a8592fe
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - options
+  theme:
+    - spectrum
+active_version: 82b158628681ef35
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        icon:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: mail
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /contact
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Contact us'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Header Icon Link'
+id: sdc.spectrum.header-icon-link
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:header-icon-link'

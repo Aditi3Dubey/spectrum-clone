@@ -17,6 +17,11 @@
           nav.classList.toggle('is-open', !isOpen);
         });
 
+        // The search icon can be switched off in Canvas ("Show search").
+        if (!searchToggle || !search) {
+          return;
+        }
+
         searchToggle.addEventListener('click', () => {
           const isOpen = searchToggle.getAttribute('aria-expanded') === 'true';
           searchToggle.setAttribute('aria-expanded', String(!isOpen));
