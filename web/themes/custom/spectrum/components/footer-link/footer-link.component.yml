@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Footer Link
+description: 'A single footer link. Place it in a Footer Column, or in the Legal links slot of the Site Footer.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - label
+    - url
+  properties:
+    label:
+      type: string
+      title: 'Link text'
+      examples:
+        - 'Privacy policy'
+    url:
+      type: string
+      format: uri-reference
+      title: 'Link'
+      examples:
+        - /privacy-policy

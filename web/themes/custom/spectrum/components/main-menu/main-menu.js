@@ -1,41 +1,52 @@
 /**
  * @file
- * Main Menu: opens mega panels on hover (desktop) and click (all sizes).
+ * Main Menu: opens mega panels on click. Uses event delegation so items
+ * added later (e.g. in the Canvas editor) work too.
  */
 ((Drupal, once) => {
+  const desktop = window.matchMedia('(min-width: 992px)');
+
+  const setOpen = (item, open) => {
+    item.classList.toggle('is-open', open);
+    const toggle = item.querySelector(':scope > .main-menu__toggle');
+    if (toggle) {
+      toggle.setAttribute('aria-expanded', String(open));
+    }
+  };
+
+  const closeAll = (except) => {
+    document.querySelectorAll('.main-menu__item.is-open').forEach((item) => {
+      if (item !== except) {
+        setOpen(item, false);
+      }
+    });
+  };
+
   Drupal.behaviors.spectrumMainMenu = {
-    attach(context) {
-      once('main-menu', '.main-menu', context).forEach((menu) => {
-        const items = menu.querySelectorAll('.main-menu__item--parent');
-        const desktop = window.matchMedia('(min-width: 992px)');
-
-        const close = (item) => {
-          item.classList.remove('is-open');
-          item.querySelector('.main-menu__toggle').setAttribute('aria-expanded', 'false');
-        };
-        const open = (item) => {
-          items.forEach((other) => other !== item && close(other));
-          item.classList.add('is-open');
-          item.querySelector('.main-menu__toggle').setAttribute('aria-expanded', 'true');
-        };
-
-        items.forEach((item) => {
-          const toggle = item.querySelector('.main-menu__toggle');
-
-          toggle.addEventListener('click', () => {
-            item.classList.contains('is-open') ? close(item) : open(item);
-          });
-          item.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-              close(item);
-              toggle.focus();
-            }
-          });
+    attach() {
+      once('main-menu', 'html').forEach(() => {
+        document.addEventListener('click', (event) => {
+          const toggle = event.target.closest('.main-menu__toggle');
+          if (toggle) {
+            const item = toggle.closest('.main-menu__item');
+            const willOpen = !item.classList.contains('is-open');
+            closeAll(item);
+            setOpen(item, willOpen);
+            return;
+          }
+          if (desktop.matches && !event.target.closest('.main-menu')) {
+            closeAll();
+          }
         });
 
-        document.addEventListener('click', (event) => {
-          if (desktop.matches && !menu.contains(event.target)) {
-            items.forEach(close);
+        document.addEventListener('keydown', (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          const item = event.target.closest('.main-menu__item.is-open');
+          if (item) {
+            setOpen(item, false);
+            item.querySelector('.main-menu__toggle')?.focus();
           }
         });
       });

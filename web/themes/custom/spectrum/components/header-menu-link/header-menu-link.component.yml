@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Header Menu Link
+description: 'A single link inside a Header Menu Column. Place it in the Links slot of a Header Menu Column.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - label
+    - url
+  properties:
+    label:
+      type: string
+      title: 'Link text'
+      examples:
+        - 'Cut & Strip'
+    url:
+      type: string
+      format: uri-reference
+      title: 'Link'
+      examples:
+        - /products

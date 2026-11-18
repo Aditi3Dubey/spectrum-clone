@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Header Menu Column component.
+ */
+#}
+<li{{ attributes.addClass('main-menu__column') }}>
+  {% if heading_url %}
+    <a class="main-menu__heading" href="{{ heading_url }}">{{ heading }}</a>
+  {% else %}
+    <span class="main-menu__heading">{{ heading }}</span>
+  {% endif %}
+
+  <ul class="main-menu__sublist">
+    {% block links %}{% endblock %}
+  </ul>
+</li>

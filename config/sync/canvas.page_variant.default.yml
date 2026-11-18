@@ -4,47 +4,870 @@ status: true
 dependencies:
   config:
     - canvas.component.block.system_breadcrumb_block
-    - canvas.component.block.system_menu_block.footer
-    - canvas.component.block.system_menu_block.legal
-    - canvas.component.block.system_menu_block.main
     - canvas.component.block.system_messages_block
     - canvas.component.marker.page_content
+    - canvas.component.sdc.spectrum.footer-column
+    - canvas.component.sdc.spectrum.footer-link
+    - canvas.component.sdc.spectrum.header-icon-link
+    - canvas.component.sdc.spectrum.header-menu-column
+    - canvas.component.sdc.spectrum.header-menu-item
+    - canvas.component.sdc.spectrum.header-menu-link
     - canvas.component.sdc.spectrum.site-footer
     - canvas.component.sdc.spectrum.site-header
+    - canvas.component.sdc.spectrum.social-link
   module:
     - link
+    - options
 id: default
 label: Default
 description: ''
 component_tree:
-  6902463c-d57c-4444-951e-734d62fb8f66:
-    uuid: 6902463c-d57c-4444-951e-734d62fb8f66
+  e2407508-53cb-436a-b1a1-820f2bdba6b2:
+    uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
     component_id: sdc.spectrum.site-header
-    component_version: 5057817266762d22
+    component_version: dad7a54ed46d52ca
     inputs:
-      logo_src: /themes/custom/spectrum/logo.svg
-      logo_alt: 'SpectraTech home'
+      logo:
+        sourceType: default-relative-url
+        value:
+          src: /themes/custom/spectrum/logo.svg
+          alt: 'SpectraTech home'
+          width: 179
+          height: 40
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.spectrum.site-header
       home_url:
         uri: 'internal:/'
         options: {  }
-      contact_url:
-        uri: 'internal:/contact'
-        options: {  }
+      show_search: true
       search_url:
         uri: 'internal:/search/node'
         options: {  }
-  c51d959a-7468-42fc-a4fd-ca5d580d0d7d:
-    parent_uuid: 6902463c-d57c-4444-951e-734d62fb8f66
-    slot: navigation
-    uuid: c51d959a-7468-42fc-a4fd-ca5d580d0d7d
-    component_id: block.system_menu_block.main
-    component_version: 322535c0078cf59c
+      search_placeholder: 'Search the site'
+      search_button_label: Search
+  ff0fe6a8-360f-459a-b330-7fbffd88ec68:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: actions
+    uuid: ff0fe6a8-360f-459a-b330-7fbffd88ec68
+    component_id: sdc.spectrum.header-icon-link
+    component_version: 82b158628681ef35
     inputs:
-      label: 'Main navigation'
-      label_display: '0'
-      level: 1
-      depth: 3
-      expand_all_items: true
+      icon: mail
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+      label: 'Contact us'
+  8610e492-aaee-4e24-9969-a219dd99c7a2:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: 8610e492-aaee-4e24-9969-a219dd99c7a2
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: About
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c:
+    parent_uuid: 8610e492-aaee-4e24-9969-a219dd99c7a2
+    slot: columns
+    uuid: 40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Who We Are'
+  119f4b32-60d3-4e10-acab-87c2eb0cfc12:
+    parent_uuid: 40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c
+    slot: links
+    uuid: 119f4b32-60d3-4e10-acab-87c2eb0cfc12
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'About Us'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  409bafb7-0a25-4d4d-8f05-6ca02bf8ff8b:
+    parent_uuid: 40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c
+    slot: links
+    uuid: 409bafb7-0a25-4d4d-8f05-6ca02bf8ff8b
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Locations
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  bf57f2aa-8fc9-4af4-b314-4ec6e1596cdc:
+    parent_uuid: 40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c
+    slot: links
+    uuid: bf57f2aa-8fc9-4af4-b314-4ec6e1596cdc
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Leadership
+      url:
+        uri: 'internal:/about/leadership'
+        options: {  }
+  228fe50e-af59-49dc-aa43-be3545944cf1:
+    parent_uuid: 40ca01d9-e88d-4b8e-b4a9-5931bbe4cf4c
+    slot: links
+    uuid: 228fe50e-af59-49dc-aa43-be3545944cf1
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Company History'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  a37e69e6-8998-4862-8357-91bd12698344:
+    parent_uuid: 8610e492-aaee-4e24-9969-a219dd99c7a2
+    slot: columns
+    uuid: a37e69e6-8998-4862-8357-91bd12698344
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'What We Do'
+  f8fe9357-f41f-427b-b3a2-a3ef73bcfb2c:
+    parent_uuid: a37e69e6-8998-4862-8357-91bd12698344
+    slot: links
+    uuid: f8fe9357-f41f-427b-b3a2-a3ef73bcfb2c
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Our Technology'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  b002b29f-a698-400a-b3a2-ca79a0dfcc01:
+    parent_uuid: a37e69e6-8998-4862-8357-91bd12698344
+    slot: links
+    uuid: b002b29f-a698-400a-b3a2-ca79a0dfcc01
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Certifications
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  ff5883f3-a451-4318-9684-5715feaf5f33:
+    parent_uuid: 8610e492-aaee-4e24-9969-a219dd99c7a2
+    slot: columns
+    uuid: ff5883f3-a451-4318-9684-5715feaf5f33
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: Newsroom
+  338d0ad9-8e33-43a2-a764-e05463fdda15:
+    parent_uuid: ff5883f3-a451-4318-9684-5715feaf5f33
+    slot: links
+    uuid: 338d0ad9-8e33-43a2-a764-e05463fdda15
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'News & Events'
+      url:
+        uri: 'internal:/news-and-events'
+        options: {  }
+  408c0414-b3b6-496c-a742-6b29f59211f8:
+    parent_uuid: 8610e492-aaee-4e24-9969-a219dd99c7a2
+    slot: columns
+    uuid: 408c0414-b3b6-496c-a742-6b29f59211f8
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Corporate Information'
+  2679a514-bc39-47e2-9e92-91e0d9896e0b:
+    parent_uuid: 408c0414-b3b6-496c-a742-6b29f59211f8
+    slot: links
+    uuid: 2679a514-bc39-47e2-9e92-91e0d9896e0b
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Careers
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  96c175ad-a047-4531-bcde-006431f06371:
+    parent_uuid: 408c0414-b3b6-496c-a742-6b29f59211f8
+    slot: links
+    uuid: 96c175ad-a047-4531-bcde-006431f06371
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Investor Portal'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  5d19a22e-969c-4a8c-b72e-26cec183eb33:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: Products
+      url:
+        uri: 'internal:/products'
+        options: {  }
+      explore_text: 'Explore Our Products'
+  322e1ae8-8fce-4ca0-842a-44b8ffac64ad:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: 322e1ae8-8fce-4ca0-842a-44b8ffac64ad
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Laser Wire Markers'
+      heading_url:
+        uri: 'internal:/products/laser-wire-markers'
+        options: {  }
+  d3022c14-2082-43f2-803c-ee8072a9b39d:
+    parent_uuid: 322e1ae8-8fce-4ca0-842a-44b8ffac64ad
+    slot: links
+    uuid: d3022c14-2082-43f2-803c-ee8072a9b39d
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products/laser-wire-markers'
+        options: {  }
+  9a6cfbad-3fa0-4147-aece-8aa50c8dd7fd:
+    parent_uuid: 322e1ae8-8fce-4ca0-842a-44b8ffac64ad
+    slot: links
+    uuid: 9a6cfbad-3fa0-4147-aece-8aa50c8dd7fd
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LX 100 Series'
+      url:
+        uri: 'internal:/products/laser-wire-markers'
+        options: {  }
+  cfc823d3-5733-4efc-b215-8cf0d7ac2c46:
+    parent_uuid: 322e1ae8-8fce-4ca0-842a-44b8ffac64ad
+    slot: links
+    uuid: cfc823d3-5733-4efc-b215-8cf0d7ac2c46
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LX 500 Series'
+      url:
+        uri: 'internal:/products/laser-wire-markers/lx-500-series'
+        options: {  }
+  065ad0fd-82c2-420f-a836-fdee5a908ef0:
+    parent_uuid: 322e1ae8-8fce-4ca0-842a-44b8ffac64ad
+    slot: links
+    uuid: 065ad0fd-82c2-420f-a836-fdee5a908ef0
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LX 1000'
+      url:
+        uri: 'internal:/products/laser-wire-markers'
+        options: {  }
+  be5a2611-d00c-45dc-af5e-26b73624e43a:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Laser Wire Strippers'
+      heading_url:
+        uri: 'internal:/products'
+        options: {  }
+  2542603f-0b7e-4cbd-89e3-85693284e681:
+    parent_uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    slot: links
+    uuid: 2542603f-0b7e-4cbd-89e3-85693284e681
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  fb1096d2-c2e4-4072-ba05-f937d87efb3c:
+    parent_uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    slot: links
+    uuid: fb1096d2-c2e4-4072-ba05-f937d87efb3c
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LS 200 Series'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  510a8f17-9367-410d-b29c-bfdfcb7f1bf6:
+    parent_uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    slot: links
+    uuid: 510a8f17-9367-410d-b29c-bfdfcb7f1bf6
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LS 300 Series'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  81bbb9c7-35a8-40f1-a716-310431bb78c8:
+    parent_uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    slot: links
+    uuid: 81bbb9c7-35a8-40f1-a716-310431bb78c8
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LS 500 Series'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  28834b85-b09d-4c9b-811c-b041b5333de7:
+    parent_uuid: be5a2611-d00c-45dc-af5e-26b73624e43a
+    slot: links
+    uuid: 28834b85-b09d-4c9b-811c-b041b5333de7
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'LS Rapid'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  67be819e-ad17-4d69-8ce9-176f88894b05:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: 67be819e-ad17-4d69-8ce9-176f88894b05
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Measure & Cut Systems'
+      heading_url:
+        uri: 'internal:/products'
+        options: {  }
+  adfc4a0f-9fe5-4319-b966-572b44cce874:
+    parent_uuid: 67be819e-ad17-4d69-8ce9-176f88894b05
+    slot: links
+    uuid: adfc4a0f-9fe5-4319-b966-572b44cce874
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  822638bf-c5df-4e51-8de8-b5872f14ee5a:
+    parent_uuid: 67be819e-ad17-4d69-8ce9-176f88894b05
+    slot: links
+    uuid: 822638bf-c5df-4e51-8de8-b5872f14ee5a
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'MC Compact'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  a87c3e51-b157-4cd7-8636-e10a2bf1bcb3:
+    parent_uuid: 67be819e-ad17-4d69-8ce9-176f88894b05
+    slot: links
+    uuid: a87c3e51-b157-4cd7-8636-e10a2bf1bcb3
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'MC Compact+'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  993b4f0d-d005-4019-9dd6-0802f7ee4711:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Wire Handling & Automation'
+      heading_url:
+        uri: 'internal:/products'
+        options: {  }
+  d4412b8a-2412-4daf-aa6d-e1af083efa63:
+    parent_uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    slot: links
+    uuid: d4412b8a-2412-4daf-aa6d-e1af083efa63
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  55117499-bdce-4976-825b-7761f639f292:
+    parent_uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    slot: links
+    uuid: 55117499-bdce-4976-825b-7761f639f292
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Dereelers
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  7ba2d074-a3d4-43cc-bde5-105431540596:
+    parent_uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    slot: links
+    uuid: 7ba2d074-a3d4-43cc-bde5-105431540596
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Wire Auto Select & Load Unit'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  d9fecb37-8e4f-4cad-97ca-14410717d986:
+    parent_uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    slot: links
+    uuid: d9fecb37-8e4f-4cad-97ca-14410717d986
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Rereelers
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  21ad3441-d509-4dbb-ba00-95559aa7faa9:
+    parent_uuid: 993b4f0d-d005-4019-9dd6-0802f7ee4711
+    slot: links
+    uuid: 21ad3441-d509-4dbb-ba00-95559aa7faa9
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Coiling & Labelling'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  9c90d336-4e88-4c34-ad80-3df0f92442c8:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: 9c90d336-4e88-4c34-ad80-3df0f92442c8
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Inkjet Wire Markers'
+      heading_url:
+        uri: 'internal:/products'
+        options: {  }
+  4e0f1d7d-ec1c-45ec-943a-1bc25c49d4ec:
+    parent_uuid: 9c90d336-4e88-4c34-ad80-3df0f92442c8
+    slot: links
+    uuid: 4e0f1d7d-ec1c-45ec-943a-1bc25c49d4ec
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  562b2ae8-2db9-411b-a513-ed399fa2905f:
+    parent_uuid: 9c90d336-4e88-4c34-ad80-3df0f92442c8
+    slot: links
+    uuid: 562b2ae8-2db9-411b-a513-ed399fa2905f
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'IJ Series'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  4de968e2-c037-46ee-849a-99fc7cfb3fd5:
+    parent_uuid: 5d19a22e-969c-4a8c-b72e-26cec183eb33
+    slot: columns
+    uuid: 4de968e2-c037-46ee-849a-99fc7cfb3fd5
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Peripheral Systems'
+      heading_url:
+        uri: 'internal:/products'
+        options: {  }
+  0fbb64b8-a16e-46d7-bee8-98adcdbf5c44:
+    parent_uuid: 4de968e2-c037-46ee-849a-99fc7cfb3fd5
+    slot: links
+    uuid: 0fbb64b8-a16e-46d7-bee8-98adcdbf5c44
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Overview
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  53ae93b4-0c64-4d8f-8969-92e7e73d866d:
+    parent_uuid: 4de968e2-c037-46ee-849a-99fc7cfb3fd5
+    slot: links
+    uuid: 53ae93b4-0c64-4d8f-8969-92e7e73d866d
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Contrast Measurement System'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  f7e91877-7cd0-4155-8787-f0d87715182d:
+    parent_uuid: 4de968e2-c037-46ee-849a-99fc7cfb3fd5
+    slot: links
+    uuid: f7e91877-7cd0-4155-8787-f0d87715182d
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Lift Unit'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  7b31683b-5286-42d5-99ee-6a17b40b8d41:
+    parent_uuid: 4de968e2-c037-46ee-849a-99fc7cfb3fd5
+    slot: links
+    uuid: 7b31683b-5286-42d5-99ee-6a17b40b8d41
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Air Cleaning Systems'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  f3874b0c-58cd-40f3-b0b4-1f19ed21bdb0:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: f3874b0c-58cd-40f3-b0b4-1f19ed21bdb0
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: Industries
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+      explore_text: 'Explore Our Industries'
+  624e4fa6-af00-459c-9de8-c2318b263f1d:
+    parent_uuid: f3874b0c-58cd-40f3-b0b4-1f19ed21bdb0
+    slot: columns
+    uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: Industries
+  bf9ec6e6-0b15-45a9-a9a8-9eb649008b23:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: bf9ec6e6-0b15-45a9-a9a8-9eb649008b23
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Aviation
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  16ace9fd-e35f-428f-af40-3af0f984e496:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: 16ace9fd-e35f-428f-af40-3af0f984e496
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Defence
+      url:
+        uri: 'internal:/industries/defence'
+        options: {  }
+  f562eecc-b216-44a9-b95e-ebfd3dcfaca1:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: f562eecc-b216-44a9-b95e-ebfd3dcfaca1
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Medical
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  3aec9408-189f-4df6-a523-5e6425ab5607:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: 3aec9408-189f-4df6-a523-5e6425ab5607
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Space
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  2f1a2ebd-31e6-4cb2-ad28-7eabb377bc9f:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: 2f1a2ebd-31e6-4cb2-ad28-7eabb377bc9f
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Rail
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  b8a18624-3b50-43fb-bb1c-1e80a735a9c3:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: b8a18624-3b50-43fb-bb1c-1e80a735a9c3
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Automotive
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  2c31fd94-6fac-4221-b18c-02098d9b88f0:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: 2c31fd94-6fac-4221-b18c-02098d9b88f0
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Telecoms and Data'
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  770a0d67-88a1-478c-9d22-00fe6c8f786f:
+    parent_uuid: 624e4fa6-af00-459c-9de8-c2318b263f1d
+    slot: links
+    uuid: 770a0d67-88a1-478c-9d22-00fe6c8f786f
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Electronics
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  2d68a475-3a8e-4dae-95e9-fa360b6a7491:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: 2d68a475-3a8e-4dae-95e9-fa360b6a7491
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: Contract
+  353503e3-6cef-4196-b0f8-98b1a4dc56d0:
+    parent_uuid: 2d68a475-3a8e-4dae-95e9-fa360b6a7491
+    slot: columns
+    uuid: 353503e3-6cef-4196-b0f8-98b1a4dc56d0
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Contract Services'
+  5f027cf6-041c-4a34-aca4-e4be6739dd37:
+    parent_uuid: 353503e3-6cef-4196-b0f8-98b1a4dc56d0
+    slot: links
+    uuid: 5f027cf6-041c-4a34-aca4-e4be6739dd37
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Sample Processing'
+      url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+  f54e2447-dec7-4a73-a43c-6b9d799ea198:
+    parent_uuid: 353503e3-6cef-4196-b0f8-98b1a4dc56d0
+    slot: links
+    uuid: f54e2447-dec7-4a73-a43c-6b9d799ea198
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Contract Manufacturing'
+      url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+  a07c5350-2dd5-4d84-9f71-22e2d516aab0:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: a07c5350-2dd5-4d84-9f71-22e2d516aab0
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: Resources
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  c2160cfd-daeb-4a91-bf1e-0198e0d17544:
+    parent_uuid: a07c5350-2dd5-4d84-9f71-22e2d516aab0
+    slot: columns
+    uuid: c2160cfd-daeb-4a91-bf1e-0198e0d17544
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Product & Technical Info'
+  7e753375-cdad-4cda-8b79-a3792cf38eff:
+    parent_uuid: c2160cfd-daeb-4a91-bf1e-0198e0d17544
+    slot: links
+    uuid: 7e753375-cdad-4cda-8b79-a3792cf38eff
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Wire Sample Gallery'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  8d9d1d98-56e1-46f3-939f-7e1de1907694:
+    parent_uuid: c2160cfd-daeb-4a91-bf1e-0198e0d17544
+    slot: links
+    uuid: 8d9d1d98-56e1-46f3-939f-7e1de1907694
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Technical Papers'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  52088d9f-b7c1-4ce9-a9fd-22e33d18b83f:
+    parent_uuid: c2160cfd-daeb-4a91-bf1e-0198e0d17544
+    slot: links
+    uuid: 52088d9f-b7c1-4ce9-a9fd-22e33d18b83f
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Wire Gauge Table'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  b3ffbcad-018f-49b6-a7ff-863c7708a38d:
+    parent_uuid: c2160cfd-daeb-4a91-bf1e-0198e0d17544
+    slot: links
+    uuid: b3ffbcad-018f-49b6-a7ff-863c7708a38d
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: FAQs
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  9277da59-5e2d-4582-8950-491b795eacb9:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: 9277da59-5e2d-4582-8950-491b795eacb9
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: Support
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  c3cd8319-7883-45a2-9519-f610deb23146:
+    parent_uuid: 9277da59-5e2d-4582-8950-491b795eacb9
+    slot: columns
+    uuid: c3cd8319-7883-45a2-9519-f610deb23146
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Customer Support'
+  efcaf69a-834a-45e8-8e74-b38bdab56ccd:
+    parent_uuid: c3cd8319-7883-45a2-9519-f610deb23146
+    slot: links
+    uuid: efcaf69a-834a-45e8-8e74-b38bdab56ccd
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Technical Support'
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  5345065e-f4e0-48b0-a586-919c44c9ad99:
+    parent_uuid: c3cd8319-7883-45a2-9519-f610deb23146
+    slot: links
+    uuid: 5345065e-f4e0-48b0-a586-919c44c9ad99
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Service Request Form'
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  8e6ff814-6a1c-4b72-af65-17fac523ade5:
+    parent_uuid: 9277da59-5e2d-4582-8950-491b795eacb9
+    slot: columns
+    uuid: 8e6ff814-6a1c-4b72-af65-17fac523ade5
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'Maintenance & Training'
+  c0046533-a965-4b12-8a07-0b1775168d2d:
+    parent_uuid: 8e6ff814-6a1c-4b72-af65-17fac523ade5
+    slot: links
+    uuid: c0046533-a965-4b12-8a07-0b1775168d2d
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Training
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  0939bb7b-fc7d-4cbe-854a-3dfe7306b76f:
+    parent_uuid: 8e6ff814-6a1c-4b72-af65-17fac523ade5
+    slot: links
+    uuid: 0939bb7b-fc7d-4cbe-854a-3dfe7306b76f
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Maintenance Contract'
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  cb7548b2-8a46-4ce4-ade4-bbfadf515c1f:
+    parent_uuid: e2407508-53cb-436a-b1a1-820f2bdba6b2
+    slot: navigation
+    uuid: cb7548b2-8a46-4ce4-ade4-bbfadf515c1f
+    component_id: sdc.spectrum.header-menu-item
+    component_version: 634fa0204b100764
+    inputs:
+      title: ESG
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  b2157adc-5199-4642-8333-cb90c51850be:
+    parent_uuid: cb7548b2-8a46-4ce4-ade4-bbfadf515c1f
+    slot: columns
+    uuid: b2157adc-5199-4642-8333-cb90c51850be
+    component_id: sdc.spectrum.header-menu-column
+    component_version: 19a9c3879bad2bdc
+    inputs:
+      heading: 'ESG & Sustainability'
+  8e1574cb-9471-4eea-9d53-4be906d20d44:
+    parent_uuid: b2157adc-5199-4642-8333-cb90c51850be
+    slot: links
+    uuid: 8e1574cb-9471-4eea-9d53-4be906d20d44
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: Sustainability
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  39243032-1412-4377-b750-7870f439403c:
+    parent_uuid: b2157adc-5199-4642-8333-cb90c51850be
+    slot: links
+    uuid: 39243032-1412-4377-b750-7870f439403c
+    component_id: sdc.spectrum.header-menu-link
+    component_version: 3e351557f6c5fc9c
+    inputs:
+      label: 'Reports & Metrics'
+      url:
+        uri: 'internal:/about'
+        options: {  }
   68507ca0-1b52-4400-84bd-e7f0879ad77b:
     uuid: 68507ca0-1b52-4400-84bd-e7f0879ad77b
     component_id: block.system_breadcrumb_block
@@ -64,44 +887,562 @@ component_tree:
     component_id: marker.page_content
     component_version: 3b12c0b99a6caecc
     inputs: {  }
-  4838bc8c-109d-4116-901d-a03eba21ae00:
-    uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+  2dc91f3f-ae7d-4d5a-b817-53c6847ed726:
+    uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
     component_id: sdc.spectrum.site-footer
-    component_version: 2f84dac686d58324
+    component_version: 2a08d9d653c2fbbe
     inputs:
-      logo_src: /themes/custom/spectrum/logo.svg
-      logo_alt: 'SpectraTech home'
+      logo:
+        sourceType: default-relative-url
+        value:
+          src: /themes/custom/spectrum/logo.svg
+          alt: 'SpectraTech home'
+          width: 179
+          height: 40
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.spectrum.site-footer
+      home_url:
+        uri: 'internal:/'
+        options: {  }
       copyright: '©2026 SpectraTech. All rights reserved.'
-      x_url:
+  262a2039-8fd5-404c-b601-6b935ff8208f:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 262a2039-8fd5-404c-b601-6b935ff8208f
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: x
+      url:
         uri: 'https://x.com'
         options: {  }
-      linkedin_url:
+  22f83270-dad5-4b5d-89cf-e80fd811c32a:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 22f83270-dad5-4b5d-89cf-e80fd811c32a
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: linkedin
+      url:
         uri: 'https://www.linkedin.com'
         options: {  }
-      youtube_url:
+  9fa2d4df-4304-48a8-8cda-2c413c5ffe01:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: social
+    uuid: 9fa2d4df-4304-48a8-8cda-2c413c5ffe01
+    component_id: sdc.spectrum.social-link
+    component_version: 477cf7da90f7735b
+    inputs:
+      platform: youtube
+      url:
         uri: 'https://www.youtube.com'
         options: {  }
-  ccb7d5e7-3d6d-4f1a-95b2-80588bed5ddb:
-    parent_uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+  fb4ed334-c3af-4e2e-a335-51f16c16986d:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
     slot: menu
-    uuid: ccb7d5e7-3d6d-4f1a-95b2-80588bed5ddb
-    component_id: block.system_menu_block.footer
-    component_version: 075503dbc228a45c
+    uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
     inputs:
-      label: Footer
-      label_display: '0'
-      level: 1
-      depth: 2
-      expand_all_items: true
-  8a0c4796-73c0-4b9d-800f-23f9f4a54bf5:
-    parent_uuid: 4838bc8c-109d-4116-901d-a03eba21ae00
+      title: About
+  83a8acbb-7606-41c5-8f30-38f2fe796f0e:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 83a8acbb-7606-41c5-8f30-38f2fe796f0e
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'About Us'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  8617befd-373e-48eb-aacc-853118613c3f:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 8617befd-373e-48eb-aacc-853118613c3f
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Locations
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  3de1dee3-a022-4850-9e90-ba4e872f3da2:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 3de1dee3-a022-4850-9e90-ba4e872f3da2
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Leadership
+      url:
+        uri: 'internal:/about/leadership'
+        options: {  }
+  0ae7a767-1d83-4acc-972f-421c26d7bf09:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 0ae7a767-1d83-4acc-972f-421c26d7bf09
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Company History'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  e6c8c493-c0f8-4422-b88f-38cb2aff3eb7:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: e6c8c493-c0f8-4422-b88f-38cb2aff3eb7
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Our Technology'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  4b33da1b-5df1-4225-aed5-20f4037d2d2b:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 4b33da1b-5df1-4225-aed5-20f4037d2d2b
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Certifications
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  5b74b387-fa4f-4bf7-8ea1-87ae71df73b3:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 5b74b387-fa4f-4bf7-8ea1-87ae71df73b3
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'News & Events'
+      url:
+        uri: 'internal:/news-and-events'
+        options: {  }
+  3cd0bcea-8c04-41bd-88cf-612f9e218cb7:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 3cd0bcea-8c04-41bd-88cf-612f9e218cb7
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Careers
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  4806e2bf-2453-4332-a845-851d98b53aa5:
+    parent_uuid: fb4ed334-c3af-4e2e-a335-51f16c16986d
+    slot: links
+    uuid: 4806e2bf-2453-4332-a845-851d98b53aa5
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Investor Portal'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  c7600c78-4765-4c32-889d-f1ae9f813cfc:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: Products
+      title_url:
+        uri: 'internal:/products'
+        options: {  }
+  2541c07f-f7dc-4782-99b7-65c4930b3f18:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: 2541c07f-f7dc-4782-99b7-65c4930b3f18
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Laser Wire Markers'
+      url:
+        uri: 'internal:/products/laser-wire-markers'
+        options: {  }
+  e703ca82-143c-4853-bca7-2025dd7d87f7:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: e703ca82-143c-4853-bca7-2025dd7d87f7
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Laser Wire Strippers'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  4013d17e-3d4e-4316-b339-b011bc1c1d25:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: 4013d17e-3d4e-4316-b339-b011bc1c1d25
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Measure & Cut Systems'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  33d0ac9e-53a7-4426-9310-24e80cdae5ba:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: 33d0ac9e-53a7-4426-9310-24e80cdae5ba
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Wire Handling & Automation'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  0416dfbe-fbef-4806-b7d3-cf5f9976b63e:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: 0416dfbe-fbef-4806-b7d3-cf5f9976b63e
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Inkjet Wire Markers'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  d3d4609b-902d-4554-ab6f-51eb0c966d18:
+    parent_uuid: c7600c78-4765-4c32-889d-f1ae9f813cfc
+    slot: links
+    uuid: d3d4609b-902d-4554-ab6f-51eb0c966d18
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Peripheral Systems'
+      url:
+        uri: 'internal:/products'
+        options: {  }
+  0268eb18-40cd-46a9-a11d-1afe996401b2:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: Industries
+      title_url:
+        uri: 'internal:/industries'
+        options: {  }
+  c68f3011-2663-4cef-9a92-8891080f6606:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: c68f3011-2663-4cef-9a92-8891080f6606
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Aviation
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  2bd9a309-19ce-4f9a-952a-8e2435413219:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 2bd9a309-19ce-4f9a-952a-8e2435413219
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Defence
+      url:
+        uri: 'internal:/industries/defence'
+        options: {  }
+  820e2d2a-f2cb-49db-934b-4d8bca5410df:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 820e2d2a-f2cb-49db-934b-4d8bca5410df
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Medical
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  0892eab4-2fef-4a35-8b74-32e6f3b73004:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 0892eab4-2fef-4a35-8b74-32e6f3b73004
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Space
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  8026e103-95de-47a6-bf09-7d4ab34e66f4:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 8026e103-95de-47a6-bf09-7d4ab34e66f4
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Rail
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  69334258-5c25-4aa5-af69-9f11db1635b6:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 69334258-5c25-4aa5-af69-9f11db1635b6
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Automotive
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  cd20bb49-b345-4ee7-9c9d-d15c0b059c5d:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: cd20bb49-b345-4ee7-9c9d-d15c0b059c5d
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Telecoms and Data'
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  5c3862c3-977f-4c74-b3a8-575ccebce5ff:
+    parent_uuid: 0268eb18-40cd-46a9-a11d-1afe996401b2
+    slot: links
+    uuid: 5c3862c3-977f-4c74-b3a8-575ccebce5ff
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Electronics
+      url:
+        uri: 'internal:/industries'
+        options: {  }
+  d0bcfded-b6c6-40d4-8070-8be4049aa989:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: d0bcfded-b6c6-40d4-8070-8be4049aa989
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: 'Contract Services'
+  68bd3415-e232-404a-b256-7c5248f60fdb:
+    parent_uuid: d0bcfded-b6c6-40d4-8070-8be4049aa989
+    slot: links
+    uuid: 68bd3415-e232-404a-b256-7c5248f60fdb
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Sample Processing'
+      url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+  3a3225af-7458-4ef0-8e7f-4b2e461590b9:
+    parent_uuid: d0bcfded-b6c6-40d4-8070-8be4049aa989
+    slot: links
+    uuid: 3a3225af-7458-4ef0-8e7f-4b2e461590b9
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Contract Manufacturing'
+      url:
+        uri: 'internal:/contract-manufacturing'
+        options: {  }
+  94323a22-a335-4dbe-9719-2bd88a3ce5cd:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: 94323a22-a335-4dbe-9719-2bd88a3ce5cd
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: Resources
+  d4ac326c-9534-41b1-a914-b6cc3008089e:
+    parent_uuid: 94323a22-a335-4dbe-9719-2bd88a3ce5cd
+    slot: links
+    uuid: d4ac326c-9534-41b1-a914-b6cc3008089e
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Wire Sample Gallery'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  68b35943-bee5-4605-8fff-042c72064471:
+    parent_uuid: 94323a22-a335-4dbe-9719-2bd88a3ce5cd
+    slot: links
+    uuid: 68b35943-bee5-4605-8fff-042c72064471
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Technical Papers'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  dc4ac43a-e116-4bc5-9935-d2374a6bf89d:
+    parent_uuid: 94323a22-a335-4dbe-9719-2bd88a3ce5cd
+    slot: links
+    uuid: dc4ac43a-e116-4bc5-9935-d2374a6bf89d
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Wire Gauge Table'
+      url:
+        uri: 'internal:/resources/sample-gallery'
+        options: {  }
+  46a6ebf0-d5d8-48c9-abcf-a1a85b8d1b3f:
+    parent_uuid: 94323a22-a335-4dbe-9719-2bd88a3ce5cd
+    slot: links
+    uuid: 46a6ebf0-d5d8-48c9-abcf-a1a85b8d1b3f
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: FAQs
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  cef6b651-6b4a-47ac-b43d-c15d55b0e500:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: cef6b651-6b4a-47ac-b43d-c15d55b0e500
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: Support
+  66ccb4ba-8376-402b-a7c0-e0bd78d56af5:
+    parent_uuid: cef6b651-6b4a-47ac-b43d-c15d55b0e500
+    slot: links
+    uuid: 66ccb4ba-8376-402b-a7c0-e0bd78d56af5
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Technical Support'
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  b4e075a9-0a74-4313-85df-019a0ca48b0e:
+    parent_uuid: cef6b651-6b4a-47ac-b43d-c15d55b0e500
+    slot: links
+    uuid: b4e075a9-0a74-4313-85df-019a0ca48b0e
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Training
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  627820c5-bd3a-4f23-beed-c3a46a524b67:
+    parent_uuid: cef6b651-6b4a-47ac-b43d-c15d55b0e500
+    slot: links
+    uuid: 627820c5-bd3a-4f23-beed-c3a46a524b67
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Service Request Form'
+      url:
+        uri: 'internal:/contact'
+        options: {  }
+  fa4d722b-6663-4c0d-913e-001bdcc3b3e7:
+    parent_uuid: cef6b651-6b4a-47ac-b43d-c15d55b0e500
+    slot: links
+    uuid: fa4d722b-6663-4c0d-913e-001bdcc3b3e7
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Maintenance Contract'
+      url:
+        uri: 'internal:/support'
+        options: {  }
+  0824b208-e403-4792-8423-f7b7ed8edbb1:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: menu
+    uuid: 0824b208-e403-4792-8423-f7b7ed8edbb1
+    component_id: sdc.spectrum.footer-column
+    component_version: d8690fcb6b3d115a
+    inputs:
+      title: ESG
+  e4aa92aa-beee-4cfd-ba22-37d5573ab154:
+    parent_uuid: 0824b208-e403-4792-8423-f7b7ed8edbb1
+    slot: links
+    uuid: e4aa92aa-beee-4cfd-ba22-37d5573ab154
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: Sustainability
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  258247dd-9c08-4ecb-b6ae-9a18f9b7618f:
+    parent_uuid: 0824b208-e403-4792-8423-f7b7ed8edbb1
+    slot: links
+    uuid: 258247dd-9c08-4ecb-b6ae-9a18f9b7618f
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Reports & Metrics'
+      url:
+        uri: 'internal:/about'
+        options: {  }
+  3c6e6524-a7dd-4245-959e-ea2a112c7b67:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
     slot: legal
-    uuid: 8a0c4796-73c0-4b9d-800f-23f9f4a54bf5
-    component_id: block.system_menu_block.legal
-    component_version: ff4e292c4e7039fa
+    uuid: 3c6e6524-a7dd-4245-959e-ea2a112c7b67
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
     inputs:
-      label: Legal
-      label_display: '0'
-      level: 1
-      depth: null
-      expand_all_items: true
+      label: 'Terms & Conditions'
+      url:
+        uri: 'internal:/terms-and-conditions'
+        options: {  }
+  918bef4f-7d00-4ec2-b0e8-9d92b546db31:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: legal
+    uuid: 918bef4f-7d00-4ec2-b0e8-9d92b546db31
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Privacy Notice'
+      url:
+        uri: 'internal:/privacy-notice'
+        options: {  }
+  1c759359-743a-42e3-a86c-f94232c20bf8:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: legal
+    uuid: 1c759359-743a-42e3-a86c-f94232c20bf8
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Cookie Policy'
+      url:
+        uri: 'internal:/privacy-notice'
+        options: {  }
+  8026f167-9590-400d-8e3a-d49892be2ab4:
+    parent_uuid: 2dc91f3f-ae7d-4d5a-b817-53c6847ed726
+    slot: legal
+    uuid: 8026f167-9590-400d-8e3a-d49892be2ab4
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'Image Credits'
+      url:
+        uri: 'internal:/image-credits'
+        options: {  }

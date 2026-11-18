@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Footer Column
+description: 'A footer menu column with a title and links. Place it in the Footer menu slot of the Site Footer.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: 'Column title'
+      examples:
+        - Products
+    title_url:
+      type: string
+      format: uri-reference
+      title: 'Title link'
+      description: 'Optional.'
+      examples:
+        - /products
+slots:
+  links:
+    title: Links
+    description: 'Add Footer Link components here.'

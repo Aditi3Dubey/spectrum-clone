@@ -1,0 +1,49 @@
+uuid: 20285532-505a-430a-b406-b63d52bd22ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - options
+  theme:
+    - spectrum
+active_version: 477cf7da90f7735b
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        platform:
+          required: true
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: linkedin
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://www.linkedin.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'Social Link'
+id: sdc.spectrum.social-link
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:social-link'

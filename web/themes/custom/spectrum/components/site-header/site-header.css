@@ -46,7 +46,7 @@
 }
 .site-header__icon:hover { color: var(--color-red); }
 
-.site-header__contact { display: none; }
+.site-header__icon-link { display: none; }
 
 /* Hamburger: 3 lines, open hone par X */
 .site-header__burger-lines,
@@ -102,6 +102,6 @@
     background: none;
   }
 
-  .site-header__contact { display: inline-flex; }
+  .site-header__icon-link { display: inline-flex; }
   .site-header__burger { display: none; }
 }

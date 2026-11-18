@@ -1,0 +1,40 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Header Icon Link
+description: 'An icon link in the header, next to the search icon (e.g. contact, phone, login). Place it in the Actions slot of the Site Header. Hidden on mobile.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - icon
+    - url
+    - label
+  properties:
+    icon:
+      type: string
+      title: Icon
+      enum:
+        - mail
+        - phone
+        - user
+        - location
+      meta:enum:
+        mail: 'Mail'
+        phone: 'Phone'
+        user: 'User / login'
+        location: 'Location'
+      examples:
+        - mail
+    url:
+      type: string
+      format: uri-reference
+      title: 'Link'
+      description: 'A page path, or tel:/mailto: links.'
+      examples:
+        - /contact
+    label:
+      type: string
+      title: 'Label for screen readers'
+      description: 'Not visible. Describes the link, e.g. "Contact us".'
+      examples:
+        - 'Contact us'

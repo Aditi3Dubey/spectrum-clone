@@ -15,9 +15,7 @@
 }
 .site-footer__logo img { width: 179px; height: 40px; }
 
-.site-footer__social { display: flex; align-items: center; gap: 8px; }
-.site-footer__social-title { font-size: 14px; font-weight: 700; letter-spacing: 0.28px; }
-.site-footer__social ul { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.site-footer__social { display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .site-footer__social a {
   display: inline-flex;
   align-items: center;
@@ -28,7 +26,7 @@
 }
 .site-footer__social a:hover { color: var(--color-red); }
 
-/* Footer menu (menu--footer.html.twig se aata hai) */
+/* Footer menu: Footer Column + Footer Link components */
 .footer-menu {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -54,7 +52,7 @@
   list-style: none;
 }
 .footer-menu__list li:hover { background: rgba(0, 0, 0, 0.04); }
-.footer-menu__link {
+.footer-menu__list a {
   display: block;
   padding: 8px 10px 8px 0;
   color: var(--color-dark);
@@ -63,7 +61,7 @@
   text-decoration: none;
   transition: transform var(--transition);
 }
-.footer-menu__link:hover { transform: translateX(5px); color: var(--color-dark); }
+.footer-menu__list a:hover { transform: translateX(5px); color: var(--color-dark); }
 
 @media (min-width: 576px)  { .footer-menu { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 768px)  { .footer-menu { grid-template-columns: repeat(4, auto); } }

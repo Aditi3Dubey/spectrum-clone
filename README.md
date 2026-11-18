@@ -91,9 +91,14 @@ so CSS and JS load only on pages that use the component.
 
 | Component | Group | What it is |
 |---|---|---|
-| Site Header | Global | Logo, Main Menu, search, contact icon (`site-header.js`) |
-| Main Menu | Global | Dropdown main navigation, keyboard accessible (`main-menu.js`) |
-| Site Footer | Global | Footer menu columns, social links, legal menu |
+| Site Header | Header & Footer | Logo (image), Navigation slot, search (can be switched off, editable placeholder and button text), Actions slot (`site-header.js`) |
+| Header Icon Link | Header & Footer | Icon link in the Actions slot: mail, phone, user or location icon, link and screen-reader label |
+| Header Menu Item | Header & Footer | Top-level menu item. Add Header Menu Columns to its slot for a mega dropdown, or leave it empty for a plain link |
+| Header Menu Column + Header Menu Link | Header & Footer | Dropdown column with a heading and a slot of links |
+| Main Menu | Global (hidden) | Not placed in Canvas. Holds the shared mega menu CSS and JS (`main-menu.js`) loaded by Header Menu Item |
+| Site Footer | Header & Footer | Logo (image) and logo link, copyright, Social links slot, Footer menu slot and Legal links slot |
+| Social Link | Header & Footer | Social icon link in the Social links slot: X, LinkedIn, YouTube, Facebook or Instagram |
+| Footer Column + Footer Link | Header & Footer | Footer link column. Footer Link is also used on its own in the Legal links slot |
 | Breadcrumb | Global | Styles the Easy Breadcrumb block (hidden below 1200px, like the reference) |
 | Hero Banner | Sections | Homepage video hero with poster image, heading and button |
 | Page Banner | Sections | Inner-page banner: H1 on a darkened photo |
@@ -173,11 +178,17 @@ environment.
 The global layout (header, breadcrumbs, status messages, footer) comes from the Canvas page
 template, so every page and every content template shares it.
 
-Menus:
+Header and footer menus are built from Canvas components, not Drupal menus, so editors
+change them in **Canvas → Templates → Page templates → Default**:
 
-- **Main navigation:** dropdowns
-- **Footer:** link columns
-- **Legal:** Terms, Privacy, Cookie Policy, Image Credits
+- **Header:** Site Header → Header Menu Item → Header Menu Column → Header Menu Link
+- **Header icons:** Header Icon Links in the Site Header's Actions slot
+- **Footer:** Site Footer → Footer Column → Footer Link
+- **Social icons:** Social Links in the Site Footer's Social links slot
+- **Legal links:** Footer Links in the Site Footer's Legal links slot (Terms, Privacy,
+  Cookie Policy, Image Credits)
+
+The core Main navigation and Footer menus still exist but are empty and not used.
 
 ## Accessibility and performance
 

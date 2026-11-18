@@ -1,0 +1,51 @@
+uuid: 5bc61320-8cc2-4941-81ac-c593bfbe5055
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  theme:
+    - spectrum
+active_version: d8690fcb6b3d115a
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        title:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Products
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        title_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /products
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions:
+        links:
+          title: Links
+          description: 'Add Footer Link components here.'
+label: 'Footer Column'
+id: sdc.spectrum.footer-column
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:footer-column'

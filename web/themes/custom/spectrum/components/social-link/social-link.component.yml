@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Social Link
+description: 'A social media icon link. Place it in the Social links slot of the Site Footer.'
+group: 'Spectrum - Header & Footer'
+status: stable
+props:
+  type: object
+  required:
+    - platform
+    - url
+  properties:
+    platform:
+      type: string
+      title: Platform
+      enum:
+        - x
+        - linkedin
+        - youtube
+        - facebook
+        - instagram
+      meta:enum:
+        x: 'X (Twitter)'
+        linkedin: LinkedIn
+        youtube: YouTube
+        facebook: Facebook
+        instagram: Instagram
+      examples:
+        - linkedin
+    url:
+      type: string
+      format: uri-reference
+      title: 'Profile URL'
+      examples:
+        - https://www.linkedin.com
