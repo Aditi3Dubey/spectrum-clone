@@ -1,0 +1,20 @@
+uuid: b5cdd206-86e3-4526-b7d7-c62991a12233
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.footer-link
+  module:
+    - link
+id: footerlinkpattern
+label: 'Footer Link pattern'
+component_tree:
+  '0:0b497765-e464-48f0-8e48-c28af24bff91':
+    uuid: 0b497765-e464-48f0-8e48-c28af24bff91
+    component_id: sdc.spectrum.footer-link
+    component_version: 3cba5504fb8dbfa9
+    inputs:
+      label: 'About Us'
+      url:
+        uri: 'internal:/about'
+        options: {  }

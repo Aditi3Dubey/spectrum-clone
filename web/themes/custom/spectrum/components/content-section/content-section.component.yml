@@ -1,0 +1,85 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Content Section
+description: 'A section with a Content slot. Add Heading, Rich Text and Button elements and drag them into any order.'
+group: 'Spectrum - Sections'
+status: stable
+props:
+  type: object
+  properties:
+    background:
+      type: string
+      title: Background
+      enum:
+        - white
+        - grey
+      meta:enum:
+        white: White
+        grey: 'Light grey'
+      default: white
+      examples:
+        - white
+    alignment:
+      type: string
+      title: Alignment
+      enum:
+        - left
+        - center
+      meta:enum:
+        left: Left
+        center: Centre
+      default: left
+      examples:
+        - left
+    padding_top:
+      type: string
+      title: 'Padding top'
+      description: 'Space inside the section, above the content.'
+      enum:
+        - none
+        - small
+        - medium
+        - large
+      meta:enum:
+        none: 'None'
+        small: 'Small (24px)'
+        medium: 'Medium (60px)'
+        large: 'Large (100px)'
+      default: medium
+      examples:
+        - medium
+    padding_bottom:
+      type: string
+      title: 'Padding bottom'
+      description: 'Space inside the section, below the content.'
+      enum:
+        - none
+        - small
+        - medium
+        - large
+      meta:enum:
+        none: 'None'
+        small: 'Small (24px)'
+        medium: 'Medium (60px)'
+        large: 'Large (100px)'
+      default: medium
+      examples:
+        - medium
+    gap:
+      type: string
+      title: 'Gap between elements'
+      description: 'Space between the Heading, Rich Text and Button elements.'
+      enum:
+        - small
+        - medium
+        - large
+      meta:enum:
+        small: 'Small (16px)'
+        medium: 'Medium (24px)'
+        large: 'Large (60px)'
+      default: medium
+      examples:
+        - medium
+slots:
+  content:
+    title: Content
+    description: 'Add Heading, Rich Text and Button elements here, in any order.'

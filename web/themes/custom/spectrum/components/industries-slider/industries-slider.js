@@ -69,7 +69,7 @@
 
         toggle.addEventListener('click', () => setPlaying(!playing));
 
-        // . mouse hover or keyboard focus, stop the slide.
+        // On mouse hover or keyboard focus, stop the slide.
         slider.addEventListener('mouseenter', stop);
         slider.addEventListener('mouseleave', start);
         slider.addEventListener('focusin', stop);
@@ -79,7 +79,7 @@
           }
         });
 
-        // touch screen slide left/right.
+        // Touch screen: swipe left/right.
         let startX = null;
         track.addEventListener('pointerdown', (event) => {
           startX = event.clientX;

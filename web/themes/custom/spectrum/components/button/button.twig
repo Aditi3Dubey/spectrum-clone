@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Button component. Uses the global .btn styles from base.css.
+ */
+#}
+{# Spacing props: add a utility class from css/utilities/spacing.css. #}
+{% set spacing = [] %}
+{% if space_above in ['small', 'medium', 'large'] %}
+  {% set spacing = spacing|merge(['space-above--' ~ space_above]) %}
+{% endif %}
+{% if space_below in ['small', 'medium', 'large'] %}
+  {% set spacing = spacing|merge(['space-below--' ~ space_below]) %}
+{% endif %}
+
+{% set classes = ['btn']|merge(spacing) %}
+{% if style == 'white' %}
+  {% set classes = classes|merge(['btn--white']) %}
+{% endif %}
+
+<a{{ attributes.addClass(classes) }} href="{{ url }}">
+  {{ label }}
+  {{ include('spectrum:icon', { name: 'arrow', size: 14, class: 'btn__icon' }, with_context = false) }}
+
+</a>

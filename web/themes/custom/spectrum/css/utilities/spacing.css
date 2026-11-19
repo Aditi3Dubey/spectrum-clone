@@ -1,0 +1,19 @@
+/**
+ * Spacing utilities for the "Space above" / "Space below" props of the
+ * Canvas elements (Heading, Rich Text, Button).
+ *
+ * Loaded in the "theme" CSS category, so it comes after component CSS and
+ * can override a component's own `margin: 0`.
+ */
+.space-above--small  { margin-top: var(--space-xs); }      /* 8px */
+.space-above--medium { margin-top: var(--space-md); }      /* 24px */
+.space-above--large  { margin-top: var(--space-lg); }      /* 60px */
+
+.space-below--small  { margin-bottom: var(--space-xs); }   /* 8px */
+.space-below--medium { margin-bottom: var(--space-md); }   /* 24px */
+.space-below--large  { margin-bottom: var(--space-lg); }   /* 60px */
+
+@media (max-width: 575px) {
+  .space-above--large { margin-top: var(--space-md); }
+  .space-below--large { margin-bottom: var(--space-md); }
+}

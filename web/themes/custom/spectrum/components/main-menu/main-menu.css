@@ -69,7 +69,7 @@
   position: relative;
   display: block;
   padding: 8px 0 8px 20px;
-  color: #000;
+  color: var(--color-black);
   font-size: 14px;
   text-decoration: none;
   transition: padding var(--transition), background var(--transition);
@@ -85,8 +85,8 @@
 }
 .main-menu__sublink:hover {
   padding-left: 23px;
-  background: #f7f7f7;
-  color: #000;
+  background: var(--color-grey-50);
+  color: var(--color-black);
 }
 .main-menu__subitem + .main-menu__subitem { margin-top: 8px; }
 
@@ -111,7 +111,7 @@
   }
   .main-menu__item:hover,
   .main-menu__item.is-open {
-    background: #f0f0f0;
+    background: var(--color-grey-150);
     box-shadow: inset 0 -3px 0 var(--color-red);
   }
 

@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Icon component. Shared SVG icons.
+ *
+ * Usage:
+ *   {{ include('spectrum:icon', { name: 'arrow', size: 14, class: 'btn__icon' }, with_context = false) }}
+ */
+#}
+{% set size = size|default(14) %}
+<svg{{ attributes.addClass(class ?: []) }} width="{{ size }}" height="{{ size }}" viewBox="0 0 14 14" aria-hidden="true" focusable="false">
+  {% if name == 'arrow' %}
+    <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
+  {% endif %}
+</svg>

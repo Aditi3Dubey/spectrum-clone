@@ -1,0 +1,16 @@
+uuid: 15f44ef6-1640-460c-889b-8b67d73848a0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Heading Default'
+cssVariable: '--heading-default'
+value:
+  colorSpace: srgb
+  components:
+    - 0.11764705882353
+    - 0.11764705882353
+    - 0.11764705882353
+  alpha: null
+  hex: '#1e1e1e'
+displayFormat: rgb
+weight: 0

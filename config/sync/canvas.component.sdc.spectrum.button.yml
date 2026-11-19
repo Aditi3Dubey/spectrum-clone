@@ -1,0 +1,130 @@
+uuid: 7be59c5d-3bc5-43db-81d0-91f7684173b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - options
+  theme:
+    - spectrum
+active_version: 4907db34e5dec807
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Contact us'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /contact
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        style:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: red
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+        space_above:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: none
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+        space_below:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: none
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+    fallback_metadata:
+      slot_definitions: {  }
+  a7494979a57efe5d:
+    settings:
+      prop_field_definitions:
+        label:
+          required: true
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Contact us'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        url:
+          required: true
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /contact
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        style:
+          required: false
+          field_type: list_string
+          field_storage_settings:
+            allowed_values_function: canvas_load_allowed_values_for_component_prop
+          field_instance_settings: {  }
+          field_widget: options_select
+          default_value:
+            -
+              value: red
+          expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
+    fallback_metadata:
+      slot_definitions: {  }
+label: Button
+id: sdc.spectrum.button
+provider: spectrum
+source: sdc
+source_local_id: 'spectrum:button'

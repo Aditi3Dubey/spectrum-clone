@@ -12,7 +12,7 @@
 
 /* Hover/keyboard focus par halka grey, reference jaisa */
 .product-card:hover,
-.product-card:focus-within { background: #f5f5f5; }
+.product-card:focus-within { background: var(--color-grey-100); }
 
 /* Photo ka area: white padding ke beech, poori photo dikhe */
 .product-card__media {

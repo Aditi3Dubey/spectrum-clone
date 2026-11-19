@@ -1,0 +1,16 @@
+uuid: 7cafa18c-324e-4d29-94de-eba52bc0fb2c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Brand Red'
+cssVariable: '--brand-red'
+value:
+  colorSpace: srgb
+  components:
+    - 0.87843137254902
+    - 0.0
+    - 0.20392156862745
+  alpha: null
+  hex: '#e00034'
+displayFormat: rgb
+weight: 0

@@ -9,7 +9,8 @@
 
     <div class="site-footer__top">
       <a class="site-footer__logo" href="{{ home_url|default('/') }}" rel="home">
-        <img src="{{ logo.src }}" alt="{{ logo.alt|default('Home') }}" width="179" height="40" loading="lazy">
+        <img src="{{ logo.src }}" alt="{{ logo.alt|default('Home') }}" width="{{ logo.width|default(179) }}" height="{{ logo.height|default(40) }}" loading="lazy">
+
       </a>
 
       <ul class="site-footer__social">

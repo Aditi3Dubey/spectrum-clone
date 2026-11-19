@@ -9,7 +9,8 @@
 #}
 {% set columns_markup = columns|render %}
 {% set has_children = columns_markup|striptags|trim is not empty %}
-{% set panel_id = 'mega-panel-' ~ random() %}
+{% set panel_id = 'mega-panel-' ~ title|clean_id %}
+
 
 {% set classes = ['main-menu__item'] %}
 {% if has_children %}
@@ -28,7 +29,7 @@
         {% if url and explore_text %}
           <a class="main-menu__explore" href="{{ url }}">
             {{ explore_text }}
-            <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/></svg>
+            {{ include('spectrum:icon', { name: 'arrow', size: 14 }, with_context = false) }}
           </a>
         {% endif %}
         <ul class="main-menu__columns">
