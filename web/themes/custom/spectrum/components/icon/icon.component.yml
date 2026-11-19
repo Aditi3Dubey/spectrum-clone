@@ -1,0 +1,24 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Icon
+description: 'Shared SVG icons used inside other components. Hidden from Canvas.'
+group: 'Spectrum - Global'
+status: stable
+noUi: true
+props:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+      title: Icon
+      enum:
+        - arrow
+    size:
+      type: integer
+      title: Size
+      description: 'Width and height in pixels.'
+      default: 14
+    class:
+      type: string
+      title: 'CSS class'

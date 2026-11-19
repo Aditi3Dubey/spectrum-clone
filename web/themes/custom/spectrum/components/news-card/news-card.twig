@@ -32,9 +32,7 @@
           {{ title }}
         {% endif %}
       </h3>
-      <svg class="news-card__arrow" width="20" height="20" viewBox="0 0 14 14" aria-hidden="true">
-        <path d="M7 0 5.8 1.2l4.9 4.9H0v1.8h10.7l-4.9 4.9L7 14l7-7z" fill="currentColor"/>
-      </svg>
+      {{ include('spectrum:icon', { name: 'arrow', size: 20, class: 'news-card__arrow' }, with_context = false) }}
     </div>
   </div>
 </article>
