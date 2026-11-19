@@ -10,6 +10,17 @@
   --color-light: #ebebeb;
   --color-white: #ffffff;
   --color-border: rgba(0, 0, 0, 0.08);
+  --color-black: #000000;
+
+  /* Hover backgrounds */
+  --color-grey-50: #f7f7f7;    /* mega menu link hover */
+  --color-grey-100: #f5f5f5;   /* product card hover */
+  --color-grey-150: #f0f0f0;   /* mega menu top item hover */
+
+  /* Forms */
+  --color-input-border: #dcdcdc;
+  --color-placeholder: #8a8a8a;
+
 
   /* Font */
   --font-base: Arial, Helvetica, sans-serif;
