@@ -9,7 +9,8 @@
 #}
 {% set columns_markup = columns|render %}
 {% set has_children = columns_markup|striptags|trim is not empty %}
-{% set panel_id = 'mega-panel-' ~ random() %}
+{% set panel_id = 'mega-panel-' ~ title|clean_id %}
+
 
 {% set classes = ['main-menu__item'] %}
 {% if has_children %}

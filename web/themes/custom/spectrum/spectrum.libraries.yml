@@ -4,7 +4,11 @@ global:
     base:
       css/base/variables.css: {}
       css/base/base.css: {}
-    component:
-      css/components/news-listing.css: {}
     theme:
       css/utilities/spacing.css: {}
+
+news-listing:
+  version: 1.0
+  css:
+    component:
+      css/components/news-listing.css: {}
