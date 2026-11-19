@@ -107,76 +107,6 @@ versioned_properties:
         actions:
           title: Actions
           description: 'Add Header Icon Link components here (e.g. contact, phone). Shown next to the search icon.'
-  77b0f881ee12059b:
-    settings:
-      prop_field_definitions:
-        logo:
-          required: true
-          field_type: entity_reference
-          field_storage_settings:
-            target_type: media
-          field_instance_settings:
-            handler: 'default:media'
-            handler_settings:
-              target_bundles:
-                image: image
-          field_widget: media_library_widget
-          default_value: {  }
-          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
-          derived_schema_metadata: {  }
-        home_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: /
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-        contact_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: /contact
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-        search_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: /search/node
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-    fallback_metadata:
-      slot_definitions:
-        navigation:
-          title: Navigation
-          description: 'Add Header Menu Item components here.'
   5057817266762d22:
     settings:
       prop_field_definitions:
@@ -257,6 +187,168 @@ versioned_properties:
         navigation:
           title: Navigation
           description: 'Place the Main navigation menu block here.'
+  dad7a54ed46d52ca:
+    settings:
+      prop_field_definitions:
+        logo:
+          required: true
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+          derived_schema_metadata: {  }
+        home_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        show_search:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value:
+            -
+              value: true
+          expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
+        search_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /search/node
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        search_placeholder:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Search the site'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        search_button_label:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: Search
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions:
+        navigation:
+          title: Navigation
+          description: 'Add Header Menu Item components here.'
+        actions:
+          title: Actions
+          description: 'Add Header Icon Link components here (e.g. contact, phone). Shown next to the search icon.'
+  77b0f881ee12059b:
+    settings:
+      prop_field_definitions:
+        logo:
+          required: true
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+          derived_schema_metadata: {  }
+        home_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        contact_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /contact
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        search_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /search/node
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions:
+        navigation:
+          title: Navigation
+          description: 'Add Header Menu Item components here.'
 label: 'Site Header'
 id: sdc.spectrum.site-header
 provider: spectrum

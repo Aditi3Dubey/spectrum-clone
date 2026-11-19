@@ -71,91 +71,6 @@ versioned_properties:
         legal:
           title: 'Legal links'
           description: 'Add Footer Link components here.'
-  2857e9c395d35107:
-    settings:
-      prop_field_definitions:
-        logo:
-          required: true
-          field_type: entity_reference
-          field_storage_settings:
-            target_type: media
-          field_instance_settings:
-            handler: 'default:media'
-            handler_settings:
-              target_bundles:
-                image: image
-          field_widget: media_library_widget
-          default_value: {  }
-          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
-          derived_schema_metadata: {  }
-        copyright:
-          required: false
-          field_type: string
-          field_storage_settings: {  }
-          field_instance_settings: {  }
-          field_widget: string_textfield
-          default_value:
-            -
-              value: '©2026 SpectraTech. All rights reserved.'
-          expression: ℹ︎string␟value
-          derived_schema_metadata:
-            string_shape: {  }
-        x_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: 'https://x.com'
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-        linkedin_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: 'https://www.linkedin.com'
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-        youtube_url:
-          required: false
-          field_type: link
-          field_storage_settings: {  }
-          field_instance_settings:
-            title: 0
-            link_type: 17
-          field_widget: link_default
-          default_value:
-            -
-              uri: 'https://www.youtube.com'
-              options: {  }
-          expression: ℹ︎link␟url
-          derived_schema_metadata:
-            string_shape:
-              format: uri-reference
-    fallback_metadata:
-      slot_definitions:
-        menu:
-          title: 'Footer menu'
-          description: 'Add Footer Column components here.'
-        legal:
-          title: 'Legal links'
-          description: 'Add Footer Link components here.'
   2f84dac686d58324:
     settings:
       prop_field_definitions:
@@ -251,6 +166,147 @@ versioned_properties:
         legal:
           title: 'Legal links'
           description: 'Place the Legal menu block here.'
+  2a08d9d653c2fbbe:
+    settings:
+      prop_field_definitions:
+        logo:
+          required: true
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+          derived_schema_metadata: {  }
+        home_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: /
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        copyright:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: '©2026 SpectraTech. All rights reserved.'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+    fallback_metadata:
+      slot_definitions:
+        social:
+          title: 'Social links'
+          description: 'Add Social Link components here.'
+        menu:
+          title: 'Footer menu'
+          description: 'Add Footer Column components here.'
+        legal:
+          title: 'Legal links'
+          description: 'Add Footer Link components here.'
+  2857e9c395d35107:
+    settings:
+      prop_field_definitions:
+        logo:
+          required: true
+          field_type: entity_reference
+          field_storage_settings:
+            target_type: media
+          field_instance_settings:
+            handler: 'default:media'
+            handler_settings:
+              target_bundles:
+                image: image
+          field_widget: media_library_widget
+          default_value: {  }
+          expression: 'ℹ︎entity_reference␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+          derived_schema_metadata: {  }
+        copyright:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: '©2026 SpectraTech. All rights reserved.'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        x_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://x.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        linkedin_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://www.linkedin.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+        youtube_url:
+          required: false
+          field_type: link
+          field_storage_settings: {  }
+          field_instance_settings:
+            title: 0
+            link_type: 17
+          field_widget: link_default
+          default_value:
+            -
+              uri: 'https://www.youtube.com'
+              options: {  }
+          expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
+    fallback_metadata:
+      slot_definitions:
+        menu:
+          title: 'Footer menu'
+          description: 'Add Footer Column components here.'
+        legal:
+          title: 'Legal links'
+          description: 'Add Footer Link components here.'
 label: 'Site Footer'
 id: sdc.spectrum.site-footer
 provider: spectrum

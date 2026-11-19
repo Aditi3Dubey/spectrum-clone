@@ -6,3 +6,5 @@ global:
       css/base/base.css: {}
     component:
       css/components/news-listing.css: {}
+    theme:
+      css/utilities/spacing.css: {}

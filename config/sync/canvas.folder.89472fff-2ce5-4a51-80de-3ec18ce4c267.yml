@@ -1,0 +1,15 @@
+uuid: 89472fff-2ce5-4a51-80de-3ec18ce4c267
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.spectrum.button
+    - canvas.component.sdc.spectrum.heading
+    - canvas.component.sdc.spectrum.rich-text
+name: 'Spectrum - Elements'
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.spectrum.button
+  - sdc.spectrum.heading
+  - sdc.spectrum.rich-text

@@ -1,0 +1,68 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button
+description: 'A square button with an arrow. Drop it into a Content Section and drag it above or below other elements.'
+group: 'Spectrum - Elements'
+status: stable
+props:
+  type: object
+  required:
+    - label
+    - url
+  properties:
+    label:
+      type: string
+      title: 'Button text'
+      examples:
+        - 'Contact us'
+    url:
+      type: string
+      format: uri-reference
+      title: Link
+      examples:
+        - /contact
+    style:
+      type: string
+      title: Style
+      enum:
+        - red
+        - white
+      meta:enum:
+        red: 'Red'
+        white: 'White'
+      default: red
+      examples:
+        - red
+    space_above:
+      type: string
+      title: 'Space above'
+      description: 'Extra space above, added to the normal gap.'
+      enum:
+        - none
+        - small
+        - medium
+        - large
+      meta:enum:
+        none: 'None'
+        small: 'Small (8px)'
+        medium: 'Medium (24px)'
+        large: 'Large (60px)'
+      default: none
+      examples:
+        - none
+    space_below:
+      type: string
+      title: 'Space below'
+      description: 'Extra space below, added to the normal gap.'
+      enum:
+        - none
+        - small
+        - medium
+        - large
+      meta:enum:
+        none: 'None'
+        small: 'Small (8px)'
+        medium: 'Medium (24px)'
+        large: 'Large (60px)'
+      default: none
+      examples:
+        - none

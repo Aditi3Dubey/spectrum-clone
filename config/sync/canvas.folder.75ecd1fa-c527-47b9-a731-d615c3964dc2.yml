@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - canvas.component.sdc.spectrum.contact-section
+    - canvas.component.sdc.spectrum.content-section
     - canvas.component.sdc.spectrum.cta-banner
     - canvas.component.sdc.spectrum.faq-accordion
     - canvas.component.sdc.spectrum.hero
@@ -21,6 +22,7 @@ configEntityTypeId: component
 weight: 0
 items:
   - sdc.spectrum.contact-section
+  - sdc.spectrum.content-section
   - sdc.spectrum.cta-banner
   - sdc.spectrum.faq-accordion
   - sdc.spectrum.hero
