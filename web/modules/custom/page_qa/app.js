@@ -115,6 +115,72 @@ function buildOwnerMap(doc) {
   }
   return owners;
 }
+// "/sites/.../All-articles.webp?alternateWidths=..." → "All-articles.webp"
+const fileName = (src = '') => src.split('?')[0].split('/').pop();
+
+// Step 4.5a: Check 1, images with missing or empty alt.
+// Source 1: image props in the model (works even if the image isn't rendered).
+// Source 2: real <img> tags in the rendered page (catches images hardcoded in templates).
+// The same image usually shows up in both, so de-duplicate by component + file name.
+function checkImages(doc, owners, model) {
+  const issues = [];
+  const seen = new Set();
+
+  for (const [uuid, entry] of Object.entries(model ?? {})) {
+    for (const [prop, value] of Object.entries(entry.resolved ?? {})) {
+      const isImage = value && typeof value === 'object' && 'src' in value;
+      if (isImage && !value.alt?.trim()) {
+        seen.add(`${uuid}|${fileName(value.src)}`);
+        issues.push({ uuid, text: `Image prop "${prop}" (${fileName(value.src)}) has no alt text` });
+      }
+    }
+  }
+
+  for (const img of doc.querySelectorAll('img')) {
+    const alt = img.getAttribute('alt');
+    if (alt !== null && alt.trim() !== '') continue;          // has real alt text → fine
+    const uuid = owners.get(img);
+    const key = `${uuid}|${fileName(img.getAttribute('src'))}`;
+    if (seen.has(key)) continue;                               // already reported via props
+    seen.add(key);
+    issues.push({
+      uuid,
+      text: `<img> ${fileName(img.getAttribute('src'))} has ${alt === null ? 'no alt attribute' : 'empty alt'}`,
+    });
+  }
+  return issues;
+}
+
+// Step 4.5b: Check 2, skipped heading levels and H1 count.
+// Going DOWN more than one level (H2 → H4) is an issue. Going back UP (H4 → H2) is fine.
+function checkHeadings(doc, owners) {
+  const issues = [];
+  const headings = [...doc.body.querySelectorAll('h1, h2, h3, h4, h5, h6')];
+
+  let previous = 0;
+  for (const h of headings) {
+    const level = Number(h.tagName[1]);                        // "H4" → 4
+    if (previous && level > previous + 1) {
+      issues.push({
+        uuid: owners.get(h),
+        text: `H${previous} → H${level} skips H${previous + 1}: "${h.textContent.trim()}"`,
+      });
+    }
+    previous = level;
+  }
+
+  const h1s = headings.filter((h) => h.tagName === 'H1');
+  if (h1s.length === 0) {
+    issues.push({ uuid: undefined, text: 'Page has no H1' });
+  }
+  if (h1s.length > 1) {
+    for (const h of h1s) {
+      issues.push({ uuid: owners.get(h), text: `One of ${h1s.length} H1s: "${h.textContent.trim()}"` });
+    }
+  }
+  return issues;
+}
+
 $('page-select').addEventListener('change', (e) => {
   $('run').disabled = !e.target.value;
 });
