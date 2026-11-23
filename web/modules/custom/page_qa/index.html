@@ -4,9 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Page QA</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Page QA</h1>
-  <p>Hello from page_qa 👋</p>
+  <p class="intro">Checks a Canvas page for images without alt text and skipped heading levels.</p>
+
+  <div class="controls">
+    <label for="page-select">Canvas page</label>
+    <select id="page-select"><option value="">Loading pages…</option></select>
+    <button id="run" type="button" disabled>Check page</button>
+  </div>
+
+  <p id="status" role="status"></p>
+  <div id="results"></div>
+
+  <script type="module" src="app.js"></script>
 </body>
 </html>
