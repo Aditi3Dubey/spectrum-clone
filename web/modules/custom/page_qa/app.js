@@ -23,8 +23,42 @@ async function loadPageList() {
   }
 }
 
+// Step 4.3a: friendly component names, e.g. "sdc.spectrum.image-content" → "Image content".
+let componentLabels = {};
+
+async function loadComponentLabels() {
+  try {
+    const data = await getJson(`${API}/config/component`);
+    for (const [id, c] of Object.entries(data)) componentLabels[id] = c.name;
+  } catch (err) {
+    // Not fatal: fall back to names built from the machine name.
+    console.warn('Component names unavailable, using machine names', err);
+  }
+}
+
+function prettyType(type) {
+  const id = type.split('@')[0];                 // "js.qa_card@6a5c…" → "js.qa_card"
+  if (componentLabels[id]) return componentLabels[id];
+  const last = id.split('.').pop().replace(/[-_]/g, ' ');   // "image-content" → "image content"
+  return last.charAt(0).toUpperCase() + last.slice(1);      // → "Image content"
+}
+
+// Step 4.3b: walk the layout tree and build { uuid: "readable name" }.
+// Regions and slots hold "components", and components hold "slots",
+// so one recursive function covers every nesting level.
+function indexComponents(nodes, out = {}) {
+  for (const node of nodes ?? []) {
+    if (node.nodeType === 'component') out[node.uuid] = node.name || prettyType(node.type);
+    indexComponents(node.components, out);
+    indexComponents(node.slots, out);
+  }
+  return out;
+}
+
+
 $('page-select').addEventListener('change', (e) => {
   $('run').disabled = !e.target.value;
 });
 
-loadPageList().catch(showError);
+Promise.all([loadPageList(), loadComponentLabels()]).catch(showError);
+
