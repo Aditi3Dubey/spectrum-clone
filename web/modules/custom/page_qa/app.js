@@ -180,9 +180,84 @@ function checkHeadings(doc, owners) {
   }
   return issues;
 }
+// Step 4.6a: draw grouped results with a count per check.
+// Always textContent, never innerHTML: headings/alt text come from page content (untrusted).
+function renderResults(groups, names) {
+  const root = $('results');
+  root.replaceChildren();
+
+  const total = groups.reduce((sum, g) => sum + g.issues.length, 0);
+  if (total === 0) {
+    const ok = document.createElement('p');
+    ok.className = 'ok';
+    ok.textContent = '✅ No issues found';
+    root.append(ok);
+  }
+
+  for (const { title, issues } of groups) {
+    const section = document.createElement('section');
+
+    const h2 = document.createElement('h2');
+    h2.textContent = title;
+    const count = document.createElement('span');
+    count.className = issues.length ? 'count' : 'count zero';
+    count.textContent = issues.length;
+    h2.append(count);
+    section.append(h2);
+
+    if (issues.length === 0) {
+      const p = document.createElement('p');
+      p.textContent = 'No issues found';
+      section.append(p);
+    } else {
+      const ul = document.createElement('ul');
+      for (const { uuid, text } of issues) {
+        const li = document.createElement('li');
+        const who = document.createElement('span');
+        who.className = 'component';
+        who.textContent = uuid ? (names[uuid] ?? 'Unknown component') : 'Page (outside components)';
+        li.append(who, ` — ${text}`);
+        ul.append(li);
+      }
+      section.append(ul);
+    }
+    root.append(section);
+  }
+}
 
 $('page-select').addEventListener('change', (e) => {
   $('run').disabled = !e.target.value;
+});
+
+// Step 4.6b: the "Check page" button runs the whole pipeline.
+$('run').addEventListener('click', async () => {
+  const id = $('page-select').value;
+  if (!id) return;
+
+  $('run').disabled = true;                 // stop double-clicks while checking
+  $('results').replaceChildren();
+  $('status').textContent = 'Checking…';
+
+  let frame;
+  try {
+    await labelsReady;                                                  // names loaded?
+    const { html, layout, model } = await getJson(`${API}/layout/canvas_page/${id}`);
+    const names = indexComponents(layout);                              // uuid → name
+    const rendered = await renderOffscreen(html);                       // run code components
+    frame = rendered.frame;
+    const owners = buildOwnerMap(rendered.doc);                         // element → uuid
+
+    renderResults([
+      { title: 'Images without alt text', issues: checkImages(rendered.doc, owners, model) },
+      { title: 'Heading structure',       issues: checkHeadings(rendered.doc, owners) },
+    ], names);
+    $('status').textContent = '';
+  } catch (err) {
+    showError(err);
+  } finally {
+    frame?.remove();                        // always clean up the hidden iframe
+    $('run').disabled = false;
+  }
 });
 
 const labelsReady = loadComponentLabels();   // remember the promise so the button can wait for it
