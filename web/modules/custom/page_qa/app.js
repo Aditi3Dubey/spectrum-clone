@@ -19,7 +19,9 @@ async function loadPageList() {
   const select = $('page-select');
   select.replaceChildren(new Option('— Choose a page —', ''));
   for (const page of data) {
-    select.add(new Option(`${page.title} (#${page.id})`, page.id));
+       const label = page.path ? `${page.title} — ${page.path} (#${page.id})` : `${page.title} (#${page.id})`;
+    select.add(new Option(label, page.id));
+
   }
 }
 
@@ -180,29 +182,36 @@ function checkHeadings(doc, owners) {
   }
   return issues;
 }
-// Step 4.6a: draw grouped results with a count per check.
+// Step 4.6a: draw grouped results with a summary and a count per check.
 // Always textContent, never innerHTML: headings/alt text come from page content (untrusted).
-function renderResults(groups, names) {
+function renderResults(groups, names, pageLabel) {
   const root = $('results');
   root.replaceChildren();
 
+  // Improvement 3: one summary line saying which page was checked and the total.
   const total = groups.reduce((sum, g) => sum + g.issues.length, 0);
-  if (total === 0) {
-    const ok = document.createElement('p');
-    ok.className = 'ok';
-    ok.textContent = '✅ No issues found';
-    root.append(ok);
-  }
+  const summary = document.createElement('p');
+  summary.className = total === 0 ? 'summary ok' : 'summary';
+  summary.textContent = total === 0
+    ? `✅ ${pageLabel}: No issues found`
+    : `${pageLabel}: ${total} issue${total === 1 ? '' : 's'} found`;
+  root.append(summary);
 
   for (const { title, issues } of groups) {
     const section = document.createElement('section');
 
     const h2 = document.createElement('h2');
     h2.textContent = title;
+
+    // Improvement 4: the badge is visual only; screen readers get "(2 issues)" instead of "2".
     const count = document.createElement('span');
     count.className = issues.length ? 'count' : 'count zero';
     count.textContent = issues.length;
-    h2.append(count);
+    count.setAttribute('aria-hidden', 'true');
+    const srCount = document.createElement('span');
+    srCount.className = 'visually-hidden';
+    srCount.textContent = ` (${issues.length} issue${issues.length === 1 ? '' : 's'})`;
+    h2.append(count, srCount);
     section.append(h2);
 
     if (issues.length === 0) {
@@ -225,9 +234,13 @@ function renderResults(groups, names) {
   }
 }
 
+
 $('page-select').addEventListener('change', (e) => {
   $('run').disabled = !e.target.value;
+  $('results').replaceChildren();   // old results belong to the previous page
+  $('status').textContent = '';
 });
+
 
 // Step 4.6b: the "Check page" button runs the whole pipeline.
 $('run').addEventListener('click', async () => {
@@ -250,7 +263,7 @@ $('run').addEventListener('click', async () => {
     renderResults([
       { title: 'Images without alt text', issues: checkImages(rendered.doc, owners, model) },
       { title: 'Heading structure',       issues: checkHeadings(rendered.doc, owners) },
-    ], names);
+    ], names, $('page-select').selectedOptions[0].textContent);
     $('status').textContent = '';
   } catch (err) {
     showError(err);
