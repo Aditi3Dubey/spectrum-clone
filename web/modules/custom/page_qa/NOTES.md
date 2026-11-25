@@ -29,3 +29,21 @@ for real <img> and heading order (covers code components after hydration).
 - Good for "check before publish". But a published page with unpublished edits is checked in its edited state.
 - The page list API returns the SAVED title/path, so an unpublished page shows as "Untitled page — /page/19"
   in the dropdown, while the check itself uses the draft content.
+## Real pages (stretch: running on Spectrum content)
+- Decorative images: cta-banner, page-banner and contact-section hardcode alt="" because their images
+  are background decoration. alt="" is correct for decorative images, so reporting them was a false positive.
+  Fix: templates now add role="presentation"; Page QA skips alt="" images marked role="presentation"/"none"
+  or aria-hidden="true". A plain alt="" is still reported (it may be a mistake).
+- Page template components: the site header/footer come from the Canvas page template (page_variant "default"),
+  not the page. Their canvas-start/end markers are in the preview html, but their uuids are not in the
+  layout API response, so names can't be looked up → shown as "Page template (header/footer)".
+- Real findings on Spectrum pages (left unfixed on purpose: the ticket is the checker, not the site):
+  - Homepage: H1 (hero) → H3 (stat-card), no H2.
+  - News & Events: H1 (page banner) → H3 (news-card titles), no H2.
+  - Leadership: H1 → H3 (product-card), no H2.
+  - Sample Gallery: H1 → H3 (news-card), no H2.
+  - Contact: no H1 (contact-section heading is a fixed H2).
+  - About: correct (H1 → H2 → H3).
+  Cause: stat-card, news-card and product-card hardcode <h3>, contact-section hardcodes <h2>. Whether H3 is
+  right depends on what's above the card, so the proper fix is a "heading level" prop on those components.
+  CSS is class-based, so changing the tag would not change the design.

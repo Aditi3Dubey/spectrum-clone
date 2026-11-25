@@ -142,6 +142,9 @@ function checkImages(doc, owners, model) {
   for (const img of doc.querySelectorAll('img')) {
     const alt = img.getAttribute('alt');
     if (alt !== null && alt.trim() !== '') continue;          // has real alt text → fine
+    const decorative = alt === '' &&
+      (['presentation', 'none'].includes(img.getAttribute('role')) || img.getAttribute('aria-hidden') === 'true');
+    if (decorative) continue;                                  // empty alt on purpose → fine
     const uuid = owners.get(img);
     const key = `${uuid}|${fileName(img.getAttribute('src'))}`;
     if (seen.has(key)) continue;                               // already reported via props
@@ -183,6 +186,39 @@ function checkHeadings(doc, owners) {
   }
   return issues;
 }
+
+// Step 6: Check 3 (stretch), links with no accessible text.
+// Returns the text a screen reader would announce for a link ('' = nothing).
+function linkName(a) {
+  const label = a.getAttribute('aria-label')?.trim();
+  if (label) return label;
+
+  const ids = a.getAttribute('aria-labelledby');
+  if (ids) {
+    const text = ids.split(/\s+/)
+      .map((id) => a.ownerDocument.getElementById(id)?.textContent.trim() ?? '')
+      .join(' ').trim();
+    if (text) return text;
+  }
+
+  const text = a.textContent.trim();                      // visible text (also SVG <title>)
+  if (text) return text;
+
+  const alts = [...a.querySelectorAll('img')].map((img) => img.getAttribute('alt')?.trim() ?? '').join(' ').trim();
+  if (alts) return alts;                                   // image link with real alt
+
+  return a.getAttribute('title')?.trim() ?? '';
+}
+
+function checkLinks(doc, owners) {
+  const issues = [];
+  for (const a of doc.body.querySelectorAll('a[href]')) {
+    if (linkName(a)) continue;
+    issues.push({ uuid: owners.get(a), text: `Link to ${a.getAttribute('href')} has no text` });
+  }
+  return issues;
+}
+
 // Step 4.6a: draw grouped results with a summary and a count per check.
 // Always textContent, never innerHTML: headings/alt text come from page content (untrusted).
 function renderResults(groups, names, pageLabel) {
@@ -225,7 +261,9 @@ function renderResults(groups, names, pageLabel) {
         const li = document.createElement('li');
         const who = document.createElement('span');
         who.className = 'component';
-        who.textContent = uuid ? (names[uuid] ?? 'Unknown component') : 'Page (outside components)';
+        // A uuid that isn't in this page's layout comes from the Canvas page template
+        // (site header/footer), which the layout API doesn't describe.
+        who.textContent = uuid ? (names[uuid] ?? 'Page template (header/footer)') : 'Page (outside components)';
         li.append(who, ` — ${text}`);
         ul.append(li);
       }
@@ -266,6 +304,7 @@ $('run').addEventListener('click', async () => {
     renderResults([
       { title: 'Images without alt text', issues: checkImages(rendered.doc, owners, model) },
       { title: 'Heading structure',       issues: checkHeadings(rendered.doc, owners) },
+      { title: 'Links without text',      issues: checkLinks(rendered.doc, owners) },
     ], names, pageName);
     $('status').textContent = '';
     $('status').className = '';
