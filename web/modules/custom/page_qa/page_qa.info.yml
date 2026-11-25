@@ -1,0 +1,7 @@
+name: Page QA
+type: module
+description: 'Learning exercise: Canvas page extension that checks alt text and heading order.'
+package: Canvas
+core_version_requirement: ^11.3
+dependencies:
+  - canvas:canvas

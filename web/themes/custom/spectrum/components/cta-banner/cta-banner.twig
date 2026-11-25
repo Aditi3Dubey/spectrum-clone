@@ -16,6 +16,7 @@
          src="{{ image.src }}"
          {% if srcset %}srcset="{{ srcset }}" sizes="100vw"{% endif %}
          alt=""
+         role="presentation"
          {% if image.width %}width="{{ image.width }}"{% endif %}
          {% if image.height %}height="{{ image.height }}"{% endif %}
          loading="lazy">

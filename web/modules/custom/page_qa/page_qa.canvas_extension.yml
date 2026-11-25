@@ -1,0 +1,9 @@
+page_qa:
+  name: Page QA
+  description: Lists missing alt text and skipped heading levels on a Canvas page
+  url: index.html
+  icon: icon.svg
+  type: page
+  api_version: "1.0"
+  permissions:
+    - edit canvas_page
