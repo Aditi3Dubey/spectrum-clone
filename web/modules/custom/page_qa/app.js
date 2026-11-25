@@ -10,7 +10,8 @@ async function getJson(path) {
 
 function showError(err) {
   console.error(err);
-  $('status').textContent = `Error: ${err.message}`;
+   $('status').className = 'error';
+  $('status').textContent = `Couldn't check the page: ${err.message}`;
 }
 
 // Step 4.2: list Canvas pages in the dropdown.
@@ -238,9 +239,9 @@ function renderResults(groups, names, pageLabel) {
 $('page-select').addEventListener('change', (e) => {
   $('run').disabled = !e.target.value;
   $('results').replaceChildren();   // old results belong to the previous page
-  $('status').textContent = '';
+    $('status').textContent = '';
+  $('status').className = '';
 });
-
 
 // Step 4.6b: the "Check page" button runs the whole pipeline.
 $('run').addEventListener('click', async () => {
@@ -249,7 +250,9 @@ $('run').addEventListener('click', async () => {
 
   $('run').disabled = true;                 // stop double-clicks while checking
   $('results').replaceChildren();
-  $('status').textContent = 'Checking…';
+  const pageName = $('page-select').selectedOptions[0].textContent;
+  $('status').className = 'loading';
+  $('status').textContent = 'Checking page…';
 
   let frame;
   try {
@@ -263,8 +266,9 @@ $('run').addEventListener('click', async () => {
     renderResults([
       { title: 'Images without alt text', issues: checkImages(rendered.doc, owners, model) },
       { title: 'Heading structure',       issues: checkHeadings(rendered.doc, owners) },
-    ], names, $('page-select').selectedOptions[0].textContent);
+    ], names, pageName);
     $('status').textContent = '';
+    $('status').className = '';
   } catch (err) {
     showError(err);
   } finally {
