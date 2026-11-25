@@ -32,3 +32,9 @@ Rendered heading order:
 H1 Main title → H2 Section A → H2 (image-content) → H3 Sub-section → H3 (QA Card)
 
 Expected: "No issues found"
+
+## QA – No H1 (id: 19)
+Headings: H2 "Only an H2" → H3 "Then an H3"
+Expected: 1 issue — "Page has no H1" (Page, outside components). Images: 0.
+Note: while unpublished, the dropdown shows "Untitled page — /page/19"
+because the list API returns the saved title, not the draft.

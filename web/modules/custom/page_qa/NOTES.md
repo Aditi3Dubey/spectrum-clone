@@ -20,3 +20,12 @@ for real <img> and heading order (covers code components after hydration).
 - Headings also come from props (image-content heading_level), so read rendered HTML, not just heading components.
 - html includes site header + footer (logo ×2, alt "SpectraTech home", no headings).
 - DOMParser misses code components (no JS run): QA Card's h3 + img absent; data only in <canvas-island props>.
+
+
+## Draft vs published
+- The layout API returns the auto-save DRAFT, so Page QA checks what the editor shows, not what is live.
+- Tested: changed "Sub-section" H3 → H4 on QA – Clean without publishing → Page QA reported the skip,
+  while the live /qa-clean page still had H3.
+- Good for "check before publish". But a published page with unpublished edits is checked in its edited state.
+- The page list API returns the SAVED title/path, so an unpublished page shows as "Untitled page — /page/19"
+  in the dropdown, while the check itself uses the draft content.
